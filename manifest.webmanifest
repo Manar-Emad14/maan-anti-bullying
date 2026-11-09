@@ -1,15 +1,15 @@
 {
-  "name": "معاً ضد التنمر",
-  "short_name": "معاً",
-  "description": "منصة تفاعلية آمنة للاستماع، والدعم النفسي، والإبلاغ السري، والتوعية ضد التنمر.",
+  "name": "معاً ضد التنمر | Ma'an Against Bullying",
+  "short_name": "معاً | Ma'an",
+  "description": "منصة ذكية وآمنة للاستماع، والدعم النفسي، والإبلاغ السري، والتوعية ضد التنمر المدرسي والإلكتروني.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
   "dir": "rtl",
   "lang": "ar",
-  "background_color": "#FBF6EC",
-  "theme_color": "#4F7D63",
+  "background_color": "#F8FAFC",
+  "theme_color": "#1E1B4B",
   "categories": ["education", "lifestyle", "social"],
   "icons": [
     {
@@ -22,6 +22,12 @@
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ]

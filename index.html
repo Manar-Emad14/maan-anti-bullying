@@ -3,111 +3,107 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#4A7C59">
-<meta name="description" content="منصة مدرسية تفاعلية آمنة للاستماع، والدعم النفسي، والإبلاغ السري، والتوعية ضد التنمر.">
+<meta name="theme-color" content="#1E1B4B">
+<meta name="description" content="معاً ضد التنمر | منصة مدرسية تفاعلية آمنة للاستماع، والدعم النفسي، والإبلاغ السري، والتوعية ضد التنمر.">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<title>معاً ضد التنمر | صوتك مسموع</title>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="معاً ضد التنمر">
+<title>معاً ضد التنمر | Ma'an Against Bullying</title>
+
+<!-- PWA & Favicon Links -->
 <link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-512.png">
+
+<!-- Google Fonts: Tajawal (Arabic) & Plus Jakarta Sans (English) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap">
+
 <style>
 :root {
-  /* Pastel & Calming School Palette */
-  --mint-primary: #4A7C59;
-  --mint-dark: #365D42;
-  --mint-light: #EBF5EE;
-  --mint-subtle: #D8ECE0;
+  /* Ultra-Modern Royal Indigo & Violet Palette */
+  --bg-app: #F8FAFC;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-glass: rgba(255, 255, 255, 0.75);
   
-  --peach-pastel: #FDE8E1;
-  --peach-accent: #E88B6E;
-  --lavender-pastel: #EDE8F8;
-  --lavender-accent: #8675B8;
-  --sky-pastel: #E2EFF9;
-  --sky-accent: #5A99C7;
-  --cream-pastel: #FDF7EB;
-  --cream-accent: #CFA445;
-
-  --bg-app: #F4F7F5;
-  --card-bg: #FFFFFF;
-  --text-main: #22332B;
-  --text-muted: #5C6F66;
-  --border-soft: #E1EBE4;
-  --border-hover: #BCD6C6;
+  --royal-indigo: #1E1B4B;
+  --slate-dark: #0F172A;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
   
-  --danger-pastel: #FCE8E8;
-  --danger-main: #D94F4F;
-  --success-main: #3E8A59;
-
-  --shadow-sm: 0 2px 8px rgba(74, 124, 89, 0.05);
-  --shadow-md: 0 6px 20px rgba(74, 124, 89, 0.08);
-  --shadow-lg: 0 12px 32px rgba(34, 51, 43, 0.12);
+  --violet-primary: #6366F1;
+  --violet-secondary: #8B5CF6;
+  --violet-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  --violet-light: #EEF2FF;
+  
+  --cyber-turquoise: #06B6D4;
+  --turquoise-light: #ECFEFF;
+  --emerald-mint: #10B981;
+  --emerald-light: #ECFDF5;
+  --soft-rose: #F43F5E;
+  --rose-light: #FFF1F2;
+  
+  --border-soft: rgba(226, 232, 240, 0.85);
+  --border-hover: rgba(99, 102, 241, 0.4);
+  
+  --shadow-sm: 0 4px 12px rgba(30, 27, 75, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(99, 102, 241, 0.1), 0 8px 10px -6px rgba(99, 102, 241, 0.06);
+  --shadow-lg: 0 20px 35px -10px rgba(30, 27, 75, 0.15);
+  
   --radius-sm: 14px;
   --radius-md: 20px;
-  --radius-lg: 26px;
-  --radius-pill: 999px;
+  --radius-lg: 28px;
+  --radius-pill: 9999px;
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg-app: #121915;
-    --card-bg: #1B2420;
-    --text-main: #ECF3EF;
-    --text-muted: #9BB0A6;
-    --border-soft: #27362E;
-    --border-hover: #374E42;
-    --mint-primary: #65A87B;
-    --mint-dark: #81C497;
-    --mint-light: #1E2D25;
-    --mint-subtle: #24382E;
-    --peach-pastel: #352520;
-    --peach-accent: #F29E85;
-    --lavender-pastel: #2A2438;
-    --lavender-accent: #A997DC;
-    --sky-pastel: #1E2A34;
-    --sky-accent: #78B3DE;
-    --cream-pastel: #2B271E;
-    --shadow-sm: 0 2px 10px rgba(0,0,0,0.25);
-    --shadow-md: 0 6px 22px rgba(0,0,0,0.35);
+    --bg-app: #0B0F19;
+    --bg-card: rgba(17, 24, 39, 0.9);
+    --bg-card-glass: rgba(17, 24, 39, 0.75);
+    --royal-indigo: #E0E7FF;
+    --slate-dark: #F8FAFC;
+    --text-main: #F1F5F9;
+    --text-muted: #94A3B8;
+    --border-soft: rgba(51, 65, 85, 0.7);
+    --border-hover: rgba(129, 140, 248, 0.5);
+    --violet-light: rgba(99, 102, 241, 0.15);
+    --turquoise-light: rgba(6, 182, 212, 0.15);
+    --emerald-light: rgba(16, 185, 129, 0.15);
+    --rose-light: rgba(244, 63, 94, 0.15);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg-app: #121915;
-  --card-bg: #1B2420;
-  --text-main: #ECF3EF;
-  --text-muted: #9BB0A6;
-  --border-soft: #27362E;
-  --border-hover: #374E42;
-  --mint-primary: #65A87B;
-  --mint-dark: #81C497;
-  --mint-light: #1E2D25;
-  --mint-subtle: #24382E;
-  --peach-pastel: #352520;
-  --peach-accent: #F29E85;
-  --lavender-pastel: #2A2438;
-  --lavender-accent: #A997DC;
-  --sky-pastel: #1E2A34;
-  --sky-accent: #78B3DE;
-  --cream-pastel: #2B271E;
-  --shadow-sm: 0 2px 10px rgba(0,0,0,0.25);
-  --shadow-md: 0 6px 22px rgba(0,0,0,0.35);
+  --bg-app: #0B0F19;
+  --bg-card: rgba(17, 24, 39, 0.9);
+  --bg-card-glass: rgba(17, 24, 39, 0.75);
+  --royal-indigo: #E0E7FF;
+  --slate-dark: #F8FAFC;
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --border-soft: rgba(51, 65, 85, 0.7);
+  --border-hover: rgba(129, 140, 248, 0.5);
+  --violet-light: rgba(99, 102, 241, 0.15);
+  --turquoise-light: rgba(6, 182, 212, 0.15);
+  --emerald-light: rgba(16, 185, 129, 0.15);
+  --rose-light: rgba(244, 63, 94, 0.15);
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
-  background-color: #E7EFEA;
+  background-color: #E2E8F0;
   color: var(--text-main);
-  font-family: 'Tajawal', 'Cairo', system-ui, sans-serif;
+  font-family: 'Tajawal', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.6;
   display: flex;
@@ -115,8 +111,12 @@ body {
   min-height: 100vh;
 }
 
-/* Dedicated Mobile Frame Container */
-#app-shell {
+html[lang="en"] body {
+  font-family: 'Plus Jakarta Sans', 'Tajawal', system-ui, sans-serif;
+}
+
+/* Dedicated Mobile Viewport Container */
+#app-frame {
   width: 100%;
   max-width: 480px;
   min-height: 100vh;
@@ -124,91 +124,91 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 0 50px rgba(0,0,0,0.08);
+  box-shadow: 0 0 50px rgba(15, 23, 42, 0.1);
 }
 
 @media (min-width: 520px) {
-  body { padding: 18px 0; }
-  #app-shell {
-    min-height: calc(100vh - 36px);
+  body { padding: 20px 0; }
+  #app-frame {
+    min-height: calc(100vh - 40px);
     border-radius: 36px;
     overflow: hidden;
-    border: 3px solid rgba(255,255,255,0.7);
+    border: 3px solid rgba(255, 255, 255, 0.8);
   }
 }
 
-/* Main Content Area */
-#main-view {
-  flex: 1;
-  padding: 14px 16px 110px;
-  overflow-y: auto;
-}
-
-/* Typography & Headings */
-h1, h2, h3, h4 { color: var(--text-main); font-weight: 800; margin: 0 0 10px; }
-h1 { font-size: 26px; }
-h2 { font-size: 20px; }
-h3 { font-size: 17px; }
-p { margin: 0 0 10px; }
-.muted { color: var(--text-muted); }
-.bold { font-weight: 700; }
-
-/* Top Header Bar */
-#top-header {
+/* Header Styles */
+#main-header {
   position: sticky;
   top: 0;
-  z-index: 30;
-  background: var(--bg-app);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 14px 18px 10px;
+  z-index: 50;
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 14px 18px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border-soft);
 }
-.header-brand {
+
+.brand-section {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   color: var(--text-main);
 }
-.brand-logo-wrap {
-  width: 40px;
-  height: 40px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--mint-primary), #365D42);
+
+.brand-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  background: var(--violet-gradient);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.25);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  position: relative;
 }
+
+.brand-icon-box svg {
+  width: 26px;
+  height: 26px;
+}
+
 .brand-text h1 {
-  font-size: 17px;
+  font-size: 16.5px;
+  font-weight: 800;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.25;
+  color: var(--royal-indigo);
 }
-.brand-badge {
+
+.brand-safe-badge {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   font-size: 11px;
   font-weight: 700;
-  color: var(--mint-primary);
-  background: var(--mint-light);
-  padding: 1px 8px;
+  color: var(--emerald-mint);
+  background: var(--emerald-light);
+  padding: 2px 8px;
   border-radius: var(--radius-pill);
 }
 
-.header-tools { display: flex; align-items: center; gap: 8px; }
-.tool-btn {
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-icon {
   width: 38px;
   height: 38px;
   border-radius: var(--radius-pill);
-  background: var(--card-bg);
-  border: 1px solid var(--border-soft);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-soft);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -219,12 +219,32 @@ p { margin: 0 0 10px; }
   box-shadow: var(--shadow-sm);
   text-decoration: none;
 }
-.tool-btn:active { transform: scale(0.92); }
-.badge-count {
+.btn-icon:active { transform: scale(0.92); }
+
+.lang-toggle-btn {
+  padding: 0 12px;
+  height: 34px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--border-soft);
+  background: var(--bg-card);
+  color: var(--royal-indigo);
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+.lang-toggle-btn:hover { border-color: var(--violet-primary); }
+
+.alert-dot {
   position: absolute;
-  top: -3px;
-  left: -3px;
-  background: var(--danger-main);
+  top: -2px;
+  left: -2px;
+  background: var(--soft-rose);
   color: #fff;
   font-size: 10px;
   font-weight: 800;
@@ -235,54 +255,147 @@ p { margin: 0 0 10px; }
   align-items: center;
   justify-content: center;
   padding: 0 3px;
-  border: 2px solid var(--card-bg);
+  border: 2px solid var(--bg-card);
 }
 
-/* Hero Warm Banner */
-.hero-banner {
-  background: linear-gradient(135deg, var(--mint-light) 0%, var(--lavender-pastel) 100%);
+/* Install Gate Modal Screen */
+#install-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}
+#install-gate.hidden { display: none !important; }
+
+.gate-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
-  padding: 20px 18px;
-  margin-bottom: 18px;
-  border: 1.5px solid var(--mint-subtle);
+  border: 1.5px solid var(--border-soft);
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
   position: relative;
   overflow: hidden;
 }
-.hero-badge {
+
+.gate-logo-badge {
+  width: 76px;
+  height: 76px;
+  border-radius: 26px;
+  background: var(--violet-gradient);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+}
+.gate-logo-badge svg { width: 44px; height: 44px; }
+
+.gate-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--royal-indigo);
+  margin-bottom: 8px;
+}
+
+.gate-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.gate-steps-ios {
+  background: var(--violet-light);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  text-align: start;
+  margin-bottom: 20px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Main Viewport */
+#viewport {
+  flex: 1;
+  padding: 14px 16px 110px;
+  overflow-y: auto;
+}
+
+/* Glassmorphism Cards & Sections */
+.glass-box {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  border: 1.5px solid var(--border-soft);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+}
+
+/* Hero Section */
+.hero-glass {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%), var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 22px 18px;
+  margin-bottom: 18px;
+  border: 1.5px solid rgba(99, 102, 241, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--card-bg);
-  color: var(--mint-primary);
-  padding: 4px 12px;
+  background: var(--bg-card);
+  color: var(--violet-primary);
+  padding: 4px 14px;
   border-radius: var(--radius-pill);
   font-size: 12px;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-soft);
 }
-.hero-title {
-  font-size: 21px;
-  font-weight: 800;
-  color: var(--mint-dark);
+
+.hero-heading {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--royal-indigo);
   margin-bottom: 6px;
   line-height: 1.35;
 }
-.hero-subtitle {
+
+.hero-text {
   font-size: 14px;
   color: var(--text-muted);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   line-height: 1.6;
 }
-.hero-actions { display: flex; gap: 10px; }
+
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+}
 
 /* Buttons */
-.btn {
+.btn-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 11px 18px;
+  padding: 11px 20px;
   border-radius: var(--radius-pill);
   font-family: inherit;
   font-size: 14.5px;
@@ -290,36 +403,39 @@ p { margin: 0 0 10px; }
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.4, 1);
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.4, 1);
   box-sizing: border-box;
 }
-.btn:active { transform: scale(0.97); }
-.btn-primary {
-  background: var(--mint-primary);
+.btn-action:active { transform: scale(0.96); }
+
+.btn-vibrant {
+  background: var(--violet-gradient);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(74, 124, 89, 0.28);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
 }
-.btn-primary:hover { background: var(--mint-dark); }
-.btn-secondary {
-  background: var(--card-bg);
-  color: var(--text-main);
+.btn-vibrant:hover { opacity: 0.95; }
+
+.btn-outline {
+  background: var(--bg-card);
+  color: var(--royal-indigo);
   border: 1.5px solid var(--border-soft);
+  box-shadow: var(--shadow-sm);
 }
-.btn-secondary:hover { border-color: var(--mint-primary); color: var(--mint-primary); }
-.btn-peach { background: var(--peach-pastel); color: #8F4C36; border: 1px solid rgba(232, 139, 110, 0.2); }
-.btn-lavender { background: var(--lavender-pastel); color: #5B488C; }
+.btn-outline:hover { border-color: var(--violet-primary); color: var(--violet-primary); }
+
 .btn-sm { padding: 6px 14px; font-size: 13px; }
-.btn-block { width: 100%; min-height: 48px; font-size: 16px; }
+.btn-block { width: 100%; min-height: 48px; font-size: 15.5px; }
 
 /* Cards Grid */
-.cards-grid {
+.services-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-bottom: 18px;
 }
-.feature-card {
-  background: var(--card-bg);
+
+.card-item {
+  background: var(--bg-card);
   border-radius: var(--radius-md);
   padding: 16px;
   text-decoration: none;
@@ -328,93 +444,100 @@ p { margin: 0 0 10px; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 136px;
+  min-height: 142px;
   transition: all 0.22s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
-.feature-card:hover {
+.card-item:hover {
   transform: translateY(-2px);
   border-color: var(--border-hover);
   box-shadow: var(--shadow-md);
 }
-.feature-card:active { transform: scale(0.97); }
-.card-icon-wrap {
+.card-item:active { transform: scale(0.97); }
+
+.card-icon-pill {
   width: 44px;
   height: 44px;
   border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
-.feature-card.c-mint .card-icon-wrap { background: var(--mint-light); color: var(--mint-primary); }
-.feature-card.c-peach .card-icon-wrap { background: var(--peach-pastel); color: var(--peach-accent); }
-.feature-card.c-lavender .card-icon-wrap { background: var(--lavender-pastel); color: var(--lavender-accent); }
-.feature-card.c-sky .card-icon-wrap { background: var(--sky-pastel); color: var(--sky-accent); }
-.feature-card.card-wide {
+
+.card-item.c-indigo .card-icon-pill { background: var(--violet-light); color: var(--violet-primary); }
+.card-item.c-turquoise .card-icon-pill { background: var(--turquoise-light); color: var(--cyber-turquoise); }
+.card-item.c-mint .card-icon-pill { background: var(--emerald-light); color: var(--emerald-mint); }
+.card-item.c-rose .card-icon-pill { background: var(--rose-light); color: var(--soft-rose); }
+
+.card-wide-banner {
   grid-column: 1 / 3;
-  min-height: 100px;
+  min-height: 96px;
   flex-direction: row;
   align-items: center;
   padding: 16px 18px;
 }
-.feature-card.card-wide .card-icon-wrap { margin-bottom: 0; margin-left: 14px; }
-.card-content h3 { font-size: 15.5px; margin: 0 0 3px; }
-.card-content p { font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.4; }
+.card-wide-banner .card-icon-pill { margin-bottom: 0; margin-inline-end: 14px; flex-shrink: 0; }
 
-/* Interactive Sections / Containers */
-.section-box {
-  background: var(--card-bg);
+.card-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--royal-indigo);
+  margin: 0 0 4px;
+}
+.card-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Daily Motivation Box */
+.quote-card {
+  background: linear-gradient(135deg, rgba(238, 242, 255, 0.9) 0%, rgba(236, 254, 255, 0.9) 100%), var(--bg-card);
+  border: 1.5px solid rgba(99, 102, 241, 0.25);
   border-radius: var(--radius-md);
   padding: 18px;
-  border: 1.5px solid var(--border-soft);
-  margin-bottom: 16px;
-  box-shadow: var(--shadow-sm);
+  margin-bottom: 18px;
+  position: relative;
+  transition: opacity 0.3s ease;
 }
+.quote-card.fade { opacity: 0.3; }
 
-/* Tabs */
-.tabs-wrap {
+.quote-header {
   display: flex;
-  gap: 8px;
-  margin: 12px 0 16px;
-  overflow-x: auto;
-  padding-bottom: 2px;
-  scrollbar-width: none;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
-.tabs-wrap::-webkit-scrollbar { display: none; }
-.tab-pill {
-  flex: 1;
-  white-space: nowrap;
-  min-height: 42px;
-  border-radius: var(--radius-pill);
-  border: 1.5px solid var(--border-soft);
-  background: var(--card-bg);
-  color: var(--text-muted);
-  font-family: inherit;
-  font-size: 13.5px;
+.quote-tag {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--violet-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.quote-body {
+  font-size: 15px;
   font-weight: 700;
-  cursor: pointer;
-  padding: 6px 16px;
-  transition: all 0.2s ease;
-}
-.tab-pill[aria-selected="true"], .tab-pill.active {
-  background: var(--mint-primary);
-  color: #FFFFFF;
-  border-color: var(--mint-primary);
-  box-shadow: 0 3px 10px rgba(74, 124, 89, 0.2);
+  color: var(--royal-indigo);
+  line-height: 1.6;
+  margin: 0 0 12px;
 }
 
 /* Forms */
-.form-group { margin-bottom: 14px; }
-.form-label {
+.form-field { margin-bottom: 14px; }
+.form-caption {
   display: block;
   font-size: 13.5px;
   font-weight: 700;
   margin-bottom: 6px;
-  color: var(--text-main);
+  color: var(--royal-indigo);
 }
-.form-control, select.form-control, textarea.form-control {
+.input-control, select.input-control, textarea.input-control {
   width: 100%;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border-soft);
@@ -426,137 +549,69 @@ p { margin: 0 0 10px; }
   outline: none;
   transition: all 0.2s ease;
 }
-.form-control:focus, select.form-control:focus, textarea.form-control:focus {
-  border-color: var(--mint-primary);
-  background: var(--card-bg);
-  box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.12);
-}
-.form-check {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-}
-.form-check input {
-  width: 20px;
-  height: 20px;
-  accent-color: var(--mint-primary);
-  cursor: pointer;
+.input-control:focus, select.input-control:focus, textarea.input-control:focus {
+  border-color: var(--violet-primary);
+  background: var(--bg-card);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
-/* Mood Tracker Widget */
-.mood-bar {
-  display: flex;
-  justify-content: space-between;
-  gap: 6px;
-  margin-top: 10px;
-}
-.mood-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 10px 4px;
-  border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border-soft);
-  background: var(--bg-app);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--text-main);
-  transition: all 0.18s ease;
-}
-.mood-item:hover, .mood-item.active {
-  background: var(--mint-light);
-  border-color: var(--mint-primary);
-  transform: translateY(-2px);
-}
-.mood-emoji { font-size: 24px; line-height: 1; }
-
-/* Chat Container (Sanad) */
-.chat-window {
+/* Chat Styling */
+.chat-frame {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 240px);
   min-height: 380px;
 }
-.chat-messages {
+.chat-scroll {
   flex: 1;
   overflow-y: auto;
   padding: 8px 4px 14px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
-.message-bubble {
-  max-width: 84%;
+.bubble {
+  max-width: 85%;
   padding: 12px 16px;
-  border-radius: 18px;
+  border-radius: 20px;
   font-size: 14px;
-  line-height: 1.55;
+  line-height: 1.6;
   word-wrap: break-word;
 }
-.message-bubble.bot {
+.bubble.bot {
   align-self: flex-start;
-  background: var(--card-bg);
+  background: var(--bg-card);
   border: 1.5px solid var(--border-soft);
   border-bottom-right-radius: 4px;
   color: var(--text-main);
   box-shadow: var(--shadow-sm);
 }
-.message-bubble.user {
+html[lang="en"] .bubble.bot { border-bottom-right-radius: 20px; border-bottom-left-radius: 4px; }
+.bubble.user {
   align-self: flex-end;
-  background: var(--mint-primary);
+  background: var(--violet-gradient);
   color: #FFFFFF;
   border-bottom-left-radius: 4px;
-  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.2);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
 }
-.quick-chips-scroll {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 8px 2px;
-  scrollbar-width: none;
-}
-.quick-chips-scroll::-webkit-scrollbar { display: none; }
-.chip-btn {
-  white-space: nowrap;
-  background: var(--card-bg);
-  border: 1px solid var(--border-soft);
-  padding: 7px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--mint-dark);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-.chip-btn:active { transform: scale(0.95); }
-.chat-form-bar {
-  display: flex;
-  gap: 8px;
-  padding-top: 10px;
-  border-top: 1.5px solid var(--border-soft);
-}
-.chat-form-bar input { flex: 1; border-radius: var(--radius-pill); }
+html[lang="en"] .bubble.user { border-bottom-left-radius: 20px; border-bottom-right-radius: 4px; }
 
-/* Bottom Navigation Bar */
-#bottom-nav {
+/* Bottom Navbar */
+#app-nav {
   position: sticky;
   bottom: 0;
-  z-index: 40;
-  background: var(--card-bg);
+  z-index: 50;
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border-soft);
   display: flex;
   justify-content: space-around;
-  padding: 8px 8px calc(10px + env(safe-area-inset-bottom, 0px));
-  box-shadow: 0 -4px 18px rgba(0,0,0,0.04);
+  padding: 8px 6px calc(10px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.03);
 }
-.nav-link {
+
+.nav-tab {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -570,105 +625,143 @@ p { margin: 0 0 10px; }
   transition: all 0.18s ease;
   min-width: 50px;
 }
-.nav-link svg { stroke: var(--text-muted); transition: all 0.18s ease; }
-.nav-link.active {
-  background: var(--mint-light);
-  color: var(--mint-primary);
+.nav-tab svg { stroke: var(--text-muted); transition: all 0.18s ease; }
+.nav-tab.active {
+  background: var(--violet-light);
+  color: var(--violet-primary);
 }
-.nav-link.active svg { stroke: var(--mint-primary); }
+.nav-tab.active svg { stroke: var(--violet-primary); }
 
-/* Breathing Widget */
-#breath-circle {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: var(--mint-light);
-  border: 4px solid var(--mint-primary);
-  margin: 18px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--mint-dark);
-  transition: transform 3.5s ease-in-out, background-color 2s ease;
-}
-#breath-circle.inhale { transform: scale(1.3); background: #CDE8D5; }
-#breath-circle.hold { transform: scale(1.3); background: var(--lavender-pastel); }
-#breath-circle.exhale { transform: scale(0.88); background: var(--peach-pastel); }
-
-/* Toast Notification */
-#app-toast {
+/* Quick Toast */
+#toast-notification {
   position: fixed;
   top: 14px;
   left: 50%;
   transform: translate(-50%, -200%);
-  width: min(440px, 92vw);
-  background: var(--card-bg);
+  width: min(420px, 92vw);
+  background: var(--bg-card);
   color: var(--text-main);
   border-radius: var(--radius-md);
   padding: 14px 18px;
   box-shadow: var(--shadow-lg);
-  border: 1.5px solid var(--mint-primary);
+  border: 1.5px solid var(--violet-primary);
   transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  z-index: 100;
+  z-index: 2000;
   display: flex;
   align-items: center;
   gap: 12px;
 }
-#app-toast.show { transform: translate(-50%, 0); }
+#toast-notification.active { transform: translate(-50%, 0); }
 </style>
 </head>
 <body>
 
-<div id="app-shell">
+<div id="app-frame">
 
   <!-- Sticky Top Header -->
-  <header id="top-header">
-    <a class="header-brand" href="#home">
-      <div class="brand-logo-wrap">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="M9 12l2 2 4-4"/>
+  <header id="main-header">
+    <a class="brand-section" href="#home">
+      <div class="brand-icon-box">
+        <!-- Intertwined 3D Shield & Heart SVG Logo -->
+        <svg viewBox="0 0 100 100" fill="none">
+          <path d="M50 14 L80 26 C80 58 50 82 50 82 C50 82 20 58 20 26 Z" stroke="#06B6D4" stroke-width="4.5" fill="none" opacity="0.6"/>
+          <path d="M50 18 L76 28 C76 56 50 78 50 78 C50 78 24 56 24 28 Z" stroke="#FFFFFF" stroke-width="5" fill="#1E1B4B" stroke-linejoin="round"/>
+          <path d="M50 68 C50 68 33 55 33 41 C33 33 39 29 45 33 C50 36 50 36 50 36 C50 36 50 36 55 33 C61 29 67 33 67 41 C67 55 50 68 50 68 Z" fill="url(#brandHeartGrad)" />
+          <defs>
+            <linearGradient id="brandHeartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#F43F5E" />
+              <stop offset="100%" stop-color="#06B6D4" />
+            </linearGradient>
+          </defs>
         </svg>
       </div>
       <div class="brand-text">
-        <h1>معاً ضد التنمر</h1>
-        <span class="brand-badge">بسرية وأمان 🔒</span>
+        <h1 id="i18n-brand-name">معاً ضد التنمر</h1>
+        <span class="brand-safe-badge" id="i18n-safe-badge">بسرية وأمان 🔒</span>
       </div>
     </a>
-    
-    <div class="header-tools">
-      <button class="tool-btn" id="theme-toggle" aria-label="تبديل الوضع">
+
+    <div class="header-controls">
+      <!-- Language Toggle Button -->
+      <button class="lang-toggle-btn" id="lang-btn" onclick="toggleLanguage()">
+        <span id="lang-text">EN</span>
+      </button>
+
+      <!-- Theme Switcher Button -->
+      <button class="btn-icon" id="theme-btn" aria-label="تبديل الوضع">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
-      <a class="tool-btn" id="bell-btn" href="#alerts" aria-label="الإشعارات">
+
+      <!-- Alerts Bell -->
+      <a class="btn-icon" id="bell-link" href="#alerts" aria-label="الإشعارات">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
           <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
         </svg>
-      </a>
-      <a class="btn btn-sm btn-peach" href="#help">
-        🆘 مساعدة
+        <span class="alert-dot" id="unread-counter">1</span>
       </a>
     </div>
   </header>
 
-  <!-- Dynamic Main View Container -->
-  <main id="main-view"></main>
+  <!-- Main Viewport Router -->
+  <main id="viewport"></main>
 
-  <!-- Persistent Floating Bottom Navigation -->
-  <nav id="bottom-nav" aria-label="التنقل الأساسي"></nav>
+  <!-- Bottom Navigation Bar -->
+  <nav id="app-nav" aria-label="التنقل الأساسي"></nav>
 
 </div>
 
-<!-- Pop Toast Container -->
-<div id="app-toast" role="status" aria-live="polite"></div>
+<!-- Install Gate Screen (Overlay when not running in standalone PWA mode) -->
+<div id="install-gate" class="hidden">
+  <div class="gate-card">
+    <div class="gate-logo-badge">
+      <svg viewBox="0 0 100 100" fill="none">
+        <path d="M50 14 L80 26 C80 58 50 82 50 82 C50 82 20 58 20 26 Z" stroke="#06B6D4" stroke-width="5" fill="none" opacity="0.6"/>
+        <path d="M50 18 L76 28 C76 56 50 78 50 78 C50 78 24 56 24 28 Z" stroke="#FFFFFF" stroke-width="5" fill="#1E1B4B" stroke-linejoin="round"/>
+        <path d="M50 68 C50 68 33 55 33 41 C33 33 39 29 45 33 C50 36 50 36 50 36 C50 36 50 36 55 33 C61 29 67 33 67 41 C67 55 50 68 50 68 Z" fill="#F43F5E" />
+      </svg>
+    </div>
+
+    <h2 class="gate-title" id="gate-title">تثبيت التطبيق للبدء 📲</h2>
+    <p class="gate-desc" id="gate-desc">
+      لضمان أعلى معايير الخصوصية والأمان وحماية بياناتك بسرية تامة، يرجى تثبيت تطبيق «معاً ضد التنمر» على هاتفك للبدء.
+    </p>
+
+    <!-- Android / Chrome Direct Install Button -->
+    <div id="android-gate-action">
+      <button class="btn-action btn-vibrant btn-block" id="pwa-gate-btn">
+        <span id="gate-install-btn-text">تثبيت التطبيق على هاتفك للبدء ✨</span>
+      </button>
+    </div>
+
+    <!-- iOS Safari Instructions -->
+    <div id="ios-gate-action" style="display:none;margin-top:14px">
+      <div class="gate-steps-ios">
+        <b style="color:var(--royal-indigo);display:block;margin-bottom:6px" id="ios-title">خطوات التثبيت على آيفون (Safari):</b>
+        <div id="ios-steps">
+          1. اضغط على زر المشاركة <b>(Share 📤)</b> أسفل المتصفح.<br>
+          2. مرر للأسفل واختر <b>«إضافة إلى الشاشة الرئيسية» ➕</b>.<br>
+          3. افتح التطبيق من شاشتك للبدء فوراً.
+        </div>
+      </div>
+    </div>
+
+    <!-- Discrete Skip for Desktop Reviewers -->
+    <div style="margin-top:18px">
+      <button style="background:none;border:none;color:var(--text-muted);font-size:12.5px;cursor:pointer;text-decoration:underline" onclick="dismissInstallGate()">
+        <span id="gate-skip-text">المتابعة عبر المتصفح (معاينة تجريبية)</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Popup Notification -->
+<div id="toast-notification" role="status" aria-live="polite"></div>
 
 <script>
-// LocalStorage Persistence
+// State Management
 const store = {
   get(k, d) {
     try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; }
@@ -682,809 +775,743 @@ const store = {
 const $ = s => document.querySelector(s);
 const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-// SVG Icon Helper
-const ICONS = {
-  home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10"/>',
-  chat: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
-  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
-  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75"/>',
-  sparkles: '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>',
-  book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/>',
-  bell: '<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9 M13.73 21a2 2 0 0 1-3.46 0"/>',
-  heart: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
-  lock: '<path d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zm-12 0V7a5 5 0 0 1 10 0v4"/>',
-  share: '<path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8 M16 6l-4-4-4 4 M12 2v13"/>',
-  check: '<path d="M20 6L9 17l-5-5"/>'
+let currentLang = store.get('app_language', 'ar');
+
+// Comprehensive Bilingual Vocabulary Dictionary
+const I18N = {
+  ar: {
+    brandName: "معاً ضد التنمر",
+    safeBadge: "بسرية وأمان 🔒",
+    heroBadge: "🌿 مساحتك المدرسية الآمنة",
+    heroTitle: "صوتك مسموع، أنت لست وحدك",
+    heroSubtitle: "مساحة دافئة وسرية تهدف لتقديم الدعم النفسي والإرشاد، وتعزيز بيئة مدرسية خالية من الإساءة والتنمر.",
+    btnSanad: "تحدث مع سند 💬",
+    btnReport: "إبلاغ سري 🔒",
+    cardLearnTitle: "ما هو التنمر؟",
+    cardLearnDesc: "تعريف مبسط وأشكاله: اللفظي، الإلكتروني، والجسدي",
+    cardProtectTitle: "احمِ نفسك",
+    cardProtectDesc: "نصائح ذهبية وسريعة للتعامل الذكي مع المواقف",
+    cardSanadTitle: "تحدث مع سند",
+    cardSanadDesc: "مساحة استماع ودعم نفسي مع المرشد الطلابي",
+    cardChallengesTitle: "تحديات ولطافة",
+    cardChallengesDesc: "أنشطة واختبارات لتعزيز الصداقة والإيجابية",
+    cardReportBannerTitle: "نموذج الإبلاغ السري التفاعلي 🔒",
+    cardReportBannerDesc: "أبلغ بسرية تامة دون كشف هويتك، واحصل على رمز كود لمتابعة توجيهات المرشد.",
+    navHome: "الرئيسية",
+    navLearn: "عن التنمر",
+    navProtect: "احمِ نفسك",
+    navSanad: "سند",
+    navChallenges: "تحديات",
+    navReport: "إبلاغ سري",
+    dailyMotivationTitle: "💡 نبضة اليوم الملهمة",
+    btnNewQuote: "عبارة جديدة ✨",
+    gateTitle: "تثبيت التطبيق للبدء 📲",
+    gateDesc: "لضمان أعلى معايير الخصوصية والأمان وحماية بياناتك بسرية تامة، يرجى تثبيت تطبيق «معاً ضد التنمر» على هاتفك للبدء.",
+    gateInstallBtn: "تثبيت التطبيق على هاتفك للبدء ✨",
+    gateSkip: "المتابعة عبر المتصفح (معاينة تجريبية)",
+    iosTitle: "خطوات التثبيت على آيفون (Safari):",
+    iosSteps: "1. اضغط على زر المشاركة (Share 📤) أسفل الشاشة.<br>2. مرر للأسفل واختر «إضافة إلى الشاشة الرئيسية» ➕.<br>3. افتح التطبيق من شاشتك للبدء.",
+    reportHeading: "نموذج الإبلاغ السري التفاعلي 🔒",
+    reportSub: "صوتك محمي بالكامل. سيصل البلاغ مباشرة لإدارة الإرشاد الطلابي للتدخل بحكمة وسرية.",
+    tabNewReport: "تقديم بلاغ جديد",
+    tabTrackReport: "متابعة برمز الكود",
+    lblType: "نوع التنمر أو الإساءة",
+    lblLocation: "أين ومتى حدث الموقف؟",
+    lblDetails: "تفاصيل الموقف (بكل وضوح)",
+    lblAnon: "إرسال ببصمة مجهولة وسرية تماماً 🔒",
+    btnSendReport: "إرسال البلاغ بسرية 🚀",
+    trackInputPlaceholder: "أدخل الكود مثل TB-XXXXXX",
+    btnQuery: "استعلام",
+    counselorLabel: "رسالة المرشد الطلابي:"
+  },
+  en: {
+    brandName: "Ma'an Against Bullying",
+    safeBadge: "Confidential & Safe 🔒",
+    heroBadge: "🌿 Safe School Sanctuary",
+    heroTitle: "Your voice is heard, you are not alone",
+    heroSubtitle: "A warm, strictly confidential space providing guidance, psychological support, and building a bullying-free community.",
+    btnSanad: "Talk to Sanad 💬",
+    btnReport: "Confidential Report 🔒",
+    cardLearnTitle: "What is Bullying?",
+    cardLearnDesc: "Simple definitions & forms: Verbal, Cyber, and Physical",
+    cardProtectTitle: "Protect Yourself",
+    cardProtectDesc: "Golden tips and smart strategies to de-escalate situations",
+    cardSanadTitle: "Talk to Sanad",
+    cardSanadDesc: "Empathetic listening and emotional support companion",
+    cardChallengesTitle: "Kindness & Challenges",
+    cardChallengesDesc: "Interactive activities & quizzes to build positive friendship",
+    cardReportBannerTitle: "Confidential Interactive Incident Report 🔒",
+    cardReportBannerDesc: "Report safely without disclosing identity; track responses with a secret code.",
+    navHome: "Home",
+    navLearn: "About",
+    navProtect: "Protect",
+    navSanad: "Sanad",
+    navChallenges: "Challenges",
+    navReport: "Report",
+    dailyMotivationTitle: "💡 Daily Inspiring Pulse",
+    btnNewQuote: "Get New Quote ✨",
+    gateTitle: "Install App to Start 📲",
+    gateDesc: "To ensure absolute privacy, end-to-end security, and offline support, please install 'Ma'an' to your home screen to proceed.",
+    gateInstallBtn: "Install App to Start ✨",
+    gateSkip: "Continue via browser (Demo Preview)",
+    iosTitle: "Installation steps on iPhone (Safari):",
+    iosSteps: "1. Tap the Share icon (📤) at the bottom.<br>2. Scroll and select 'Add to Home Screen' (➕).<br>3. Open from your home screen to start.",
+    reportHeading: "Confidential Interactive Report 🔒",
+    reportSub: "Your identity is fully safeguarded. This report goes straight to school counselors for immediate, discreet intervention.",
+    tabNewReport: "Submit New Report",
+    tabTrackReport: "Track with Code",
+    lblType: "Type of Bullying or Abuse",
+    lblLocation: "Where and when did it occur?",
+    lblDetails: "Incident Details (clearly)",
+    lblAnon: "Send 100% Anonymously 🔒",
+    btnSendReport: "Submit Confidential Report 🚀",
+    trackInputPlaceholder: "Enter code e.g. TB-XXXXXX",
+    btnQuery: "Query",
+    counselorLabel: "School Counselor Response:"
+  }
 };
 
-const svgIcon = (name, size=22) => `
-  <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    ${ICONS[name] || ICONS.sparkles}
-  </svg>
-`;
-
-// Application State
-const STATE = {
-  activeTab: 'home',
-  learnSubTab: 'types',
-  reportSubTab: 'new',
-  selectedMood: store.get('mood_choice', null),
-  quizStep: 0,
-  quizScore: 0,
-  quizAnswer: null,
-  breathingActive: false,
-  trackedReport: null
-};
-
-// Data: Quiz & Educational Cards
-const QUIZ_DATA = [
+// Daily Motivation Quotes Bank (22+ Bilingually Curated Quotes)
+const MOTIVATION_BANK = [
   {
-    q: "زميل يسخر من مظهر زميل آخر أمام الصف ويتعمد إحراجه.",
-    opts: [
-      "أضحك معهم حتى لا يتعرضوا لي بالسخرية",
-      "أقول بحزم ولطف: «هذا ليس لائقاً»، وأقف بجانب زميلي",
-      "أتجاهل الموقف وأبتعد تماماً"
-    ],
-    correct: 1,
-    tip: "وقوفك بكلمة حق مع زميلك يمنحه الأمان ويكسر دائرة التنمر فوراً."
+    ar: "قيمتك الحقيقية نابعة من داخلك، ولا يمكن لأي متنمر أن يقلل من قدرك.",
+    en: "Your true worth comes from within; no bully can ever diminish your value."
   },
   {
-    q: "وصلتك رسالة مسيئة أو صورة محرجة لزميل في جروب المدرسة.",
-    opts: [
-      "أعيد توجيهها للأصدقاء للمزاح",
-      "أحتفظ بلقطة شاشة كدليل وأبلغ شخصاً بالغاً أو المرشد",
-      "أحذف الرسالة دون فعل أي شيء"
-    ],
-    correct: 1,
-    tip: "لقطة الشاشة تحفظ الحق، وإبلاغ المختصين يحمي الضحية دون فوضى."
+    ar: "الإبلاغ عن التنمر ليس ضعفاً أو وشاية، بل هو أعلى درجات الشجاعة والمسؤولية.",
+    en: "Reporting bullying is not weakness or snitching; it is the highest form of courage and responsibility."
   },
   {
-    q: "طالب يهددك باستمرار ويحاول أخذ مصروفك أو أدواتك.",
-    opts: [
-      "أستجيب له خوفاً من أن يؤذيني",
-      "أرد بالعنف والضرب في ممر المدرسة",
-      "أبتعد فوراً وأبلغ إدارة المدرسة والأهل في نفس اليوم"
-    ],
-    correct: 2,
-    tip: "الإبلاغ قوة وحماية لنفسك وليس ضعفاً؛ التهديد يتوقف عند تدخل الكبار."
+    ar: "أنت لا تستحق المعاملة القاسية أبداً، ومن حقك أن تعيش وتتعلم في أمان واحترام.",
+    en: "You never deserve harsh treatment; you have every right to learn and thrive in safety and respect."
+  },
+  {
+    ar: "المتنمر يعكس ألمه ونقصه الداخلي، فلا تدع كلماته تهز يقينك وطيبتك.",
+    en: "A bully merely reflects their own internal pain; never let their words shake your confidence or kindness."
+  },
+  {
+    ar: "كلمة طيبة واحدة قد تكون طوق نجاة لزميل يمر بيوم صعب في صمت.",
+    en: "A single kind word can be a lifeline for a classmate struggling in silence."
+  },
+  {
+    ar: "صوتك مسموع ومهم، وهناك دائماً من يقف بجانبك ويستمع إليك بصدق.",
+    en: "Your voice is heard and valued; there is always someone ready to stand by you and listen."
+  },
+  {
+    ar: "لا تدع سلوك شخص محبط يجعلك تشك في جمال روحك وقدراتك العظيمة.",
+    en: "Never let someone's negativity make you doubt your beauty, soul, and endless potential."
+  },
+  {
+    ar: "الشجاعة ليست غياب الخوف، بل هي التصرف وطلب المساعدة رغم وجود الخوف.",
+    en: "Courage is not the absence of fear, but acting and seeking help despite being afraid."
+  },
+  {
+    ar: "السكوت على التنمر يشجع المعتدي، ووقوفك مع زميلك يغير المعادلة بالكامل.",
+    en: "Staying silent empowers the aggressor; standing by your peer changes everything."
+  },
+  {
+    ar: "المشاعر الصعبة تمر كالسحاب العابر، وقوتك الداخلية تبقى ثابتة كالجبال.",
+    en: "Tough emotions pass like clouds, but your inner resilience stands firm like mountains."
+  },
+  {
+    ar: "أنت كافٍ تماماً كما أنت، ولست بحاجة لتغيير نفسك لترضي من لا يقدّرك.",
+    en: "You are more than enough just as you are; never change to please those who fail to appreciate you."
+  },
+  {
+    ar: "كل شخص تقابله يخوض معركة لا تعرف عنها شيئاً، فكن لطيفاً دائماً.",
+    en: "Everyone you meet is fighting a battle you know nothing about; be exceptionally kind."
+  },
+  {
+    ar: "الاعتذار عند الخطأ وطلب العون عند الحاجة هما سمات القادة الحقيقيين.",
+    en: "Apologizing when mistaken and seeking help when in need are the hallmarks of true leaders."
+  },
+  {
+    ar: "في الفضاء الرقمي، سلامك النفسي يبدأ بضغطة زر: حظر وتجاهل وتوثيق.",
+    en: "In the digital world, your inner peace begins with a click: block, ignore, and document."
+  },
+  {
+    ar: "لا تخجل من مشاعرك؛ الحزن والقلق ردود فعل طبيعية، ومشاركتها بداية الشفاء.",
+    en: "Never be ashamed of your feelings; vulnerability is natural, and sharing is the start of healing."
+  },
+  {
+    ar: "كن الشمعة التي تضيء ممرات مدرستك بالأمان والاحترام والابتسامة.",
+    en: "Be the light that illuminates your school hallways with safety, respect, and warmth."
+  },
+  {
+    ar: "أنت لست وحيداً في هذه التجربة، ومدرستك مليئة بمن يهتم لأمرك بصدق.",
+    en: "You are never alone in this journey; your community is filled with people who genuinely care."
+  },
+  {
+    ar: "عندما تدافع عن غيرك، فإنك تبني بيئة أكثر عدلاً وأماناً لك وللجميع.",
+    en: "When you stand up for others, you build a safer, fairer world for everyone."
+  },
+  {
+    ar: "ثقتك بنفسك درعك الأقوى؛ كلما زادت معرفتك بحقوقك، قل تأثير المتنمرين عليك.",
+    en: "Self-belief is your strongest shield; knowing your rights diminishes a bully's influence."
+  },
+  {
+    ar: "يوم غد يحمل فرصاً جديدة وأصدقاء أوفياء، فلا تدع موقفاً عابراً يحدد مستقبلك.",
+    en: "Tomorrow carries fresh beginnings and loyal friends; don't let a passing moment define your future."
+  },
+  {
+    ar: "الاحترام ليس خياراً بل حق أساسي لكل طالب وطالبة في مدرستنا.",
+    en: "Respect is not a luxury; it is a fundamental right for every single student."
+  },
+  {
+    ar: "نحن أقوى حين نتشارك اللطف ونساند بعضنا البعض في اللحظات الصعبة.",
+    en: "We are infinitely stronger when we share kindness and lift each other up."
   }
 ];
 
-const SANAD_BOT = {
-  intro: "أهلاً بك يا بطل، أنا «سند». أنا هنا لأسمعك بكل هدوء ودون أي لوم. مساحتنا آمنة ومحمية تماماً. ما الذي تشعر به أو يضايقك؟",
-  verbal: "الكلمات الجارحة تؤلم جداً، لكن تذكر دائماً أنها تدل على ضعف من يقولها وليس عيباً فيك أبداً! قل له بحزم: «كلامك لا يهمني»، واطلب مساعدة المرشد الطلابي.",
-  cyber: "في الفضاء الرقمي، أسهل وأقوى خطوة: لا ترد أبداً، خذ لقطة شاشة كدليل، واعمل حظر (Block) فوراً، ثم أخبر والديك.",
-  physical: "سلامتك أولاً! في حالات الأذى الجسدي لا تتردد لحظة واحدة في التوجه لمكتب المرشد أو المعلم فوراً. نحن معك ولن نتركك وحدك.",
-  sad: "من حقك أن تحزن وتشعر بالضيق، لكنك لست وحدك أبداً. أفرغ ما في صدرك هنا، فنحن نصغي إليك بكل حب واحترام.",
-  default: "سمعتك وفهمت مشاعرك تماماً. أنت شخص مهم ومميز، وتستحق بيئة مدرسية آمنة ومليئة بالاحترام. خذ نفساً عميقاً، هل تريد تقديم بلاغ سري عبر التطبيق؟"
+// Smart Empathic Listener Engine (Sanad)
+const SANAD_ENGINE = {
+  ar: {
+    greetings: "أهلاً بك يا بطل، أنا «سند». أنا هنا لأسمعك بكل هدوء ودون أي لوم. مساحتنا آمنة ومحمية تماماً. ما الذي تشعر به أو يضايقك؟",
+    verbal: [
+      "الكلمات الجارحة تؤلم جداً، لكن تذكر دائماً أنها تدل على ضعف من يقولها وليس عيباً فيك أبداً! أول خطوة: لا تصدق ما قاله، وقل له بثقة: «كلامك لا يهمني»، واطلب مساندة المرشد الطلابي. هل ما زال هذا الشخص يضايقك اليوم؟",
+      "أشعر بضيقك تماماً.. الألقاب والسخرية سلوك مرفوض قانونياً وأخلاقياً. أهم شيء ألا تظهر للمتنمر أن كلماته أثرت فيك؛ تجاوزه وركّز مع أصدقائك الداعمين. هل حدث هذا أمام زملاء الصف؟"
+    ],
+    cyber: [
+      "في الفضاء الرقمي، سلامك وأمانك أهم شيء. القاعدة الذهبية: 1) لا ترد على الإساءة إطلاقاً، 2) التقط لقطة شاشة كدليل، 3) قم بحظر الحساب فوراً، وأبلغ والديك أو إدارة المدرسة. هل لديك لقطة شاشة للمحادثة؟",
+      "التنمر الإلكتروني مزعج جداً لأنه يتعدى على خصوصيتك. تذكر أن المنصات والمدارس تعاقب بشدة على نشر الأسرار أو الشتائم. هل الرسائل تصلك في مجموعة مشتركة أم رسائل خاصة؟"
+    ],
+    physical: [
+      "سلامتك الجسدية خط أحمر فوق كل اعتبار! في حالات الدفع أو الضرب أو التهديد، لا تدخل في شجار فردي، بل اتجه فوراً لمكتب المرشد الطلابي أو إدارة المدرسة. نحن معك ولن نتركك. هل تعرضت لأي أذى جسدي الآن؟",
+      "لا تسكت أبداً على أي تهديد أو اعتداء جسدي. الذهاب فوراً للأخصائي الاجتماعي في المدرسة يحميك ويوقف المعتدي عند حده باللوائح الرسمية. هل أنت في مكان آمن حالياً؟"
+    ],
+    sad: [
+      "من حقك تماماً أن تشعر بالحزن أو الوحدة بعد ما مررت به.. أنا هنا لأسمعك بدون أي أحكام. تذكر أنك لست وحدك أبداً ومجرد حديثك معي خطوة شجاعة. ما أكثر شيء تشعر بأنه يثقل قلبك الآن؟",
+      "أحياناً تبدو الأيام صعبة، لكن هذا الحزن سيمر بالتأكيد، وقيمتك أكبر بكثير من أي موقف مؤلم. تنفس بعمق.. هل ترغب في أن تحكي لي ما حدث بالتفصيل؟"
+    ],
+    urgent: [
+      "⚠️ أرجوك اسمعني جيداً: سلامتك وأمانك هما الأهم! إذا كنت تشعر بخطر مباشر أو خوف شديد، توجه فوراً إلى أقرب معلم أو مكتب الأخصائي الاجتماعي بالمدرسة، أو اتصل فوراً بخط نجدة الطفل (16000) أو (116111). نحن بجانبك وسنحميك دائماً."
+    ],
+    default: [
+      "سمعتك وفهمت مشاعرك تماماً. أنت شخص مهم ومميز، وتستحق أن تعيش وتتعلم بأمان كامل واحترام. خذ نفساً عميقاً واسترخِ.. هل تريد تقديم بلاغ سري عبر التطبيق ليتابع المرشد حالتك بحكمة؟",
+      "أقدر شجاعتك الكبيرة في التعبير عما بداخلك. لا تكتم ضيقك، واعلم أن كل مشكلة ولها حل مدروس يحميك. ما هي الخطوة التي تشعر أنك بحاجة إليها الآن لترتاح؟"
+    ]
+  },
+  en: {
+    greetings: "Hello friend, I am Sanad. I am here to listen with absolute empathy and without any judgment. Our space is completely safe and private. How are you feeling today?",
+    verbal: [
+      "Hurtful words can sting deeply, but remember they only reflect the bully's own weakness, never your true worth! First: never believe their insults, stand firm, and inform your school counselor. Is this person still bothering you today?",
+      "I hear you completely.. Sarcasm and name-calling are completely unacceptable. The best immediate reaction is calm confidence; don't give them the reaction they seek. Did this happen in front of classmates?"
+    ],
+    cyber: [
+      "In the digital realm, your safety is paramount. The golden rule: 1) Never reply, 2) Take screenshots as evidence, 3) Block immediately and notify an adult. Do you have proof saved on your phone?",
+      "Cyberbullying violates your personal boundaries. Schools and platforms take harassment very seriously. Are these messages coming from a group chat or direct messages?"
+    ],
+    physical: [
+      "Your physical safety is non-negotiable! In cases of pushing, hitting, or physical threats, do not engage in a fight. Walk straight to the counselor's office or teacher. Are you physically safe right now?",
+      "Never stay silent on physical intimidation. Reporting it immediately protects you and triggers official protective protocols. Are you in a secure place at this moment?"
+    ],
+    sad: [
+      "It is completely valid to feel sad, lonely, or overwhelmed after what happened. I am here with you. Just reaching out is an act of bravery. What is weighing most on your mind right now?",
+      "Tough moments happen, but this pain will pass, and you are far stronger than you know. Take a deep, gentle breath.. Would you like to share what happened today?"
+    ],
+    urgent: [
+      "⚠️ Please listen closely: Your immediate safety matters above everything! If you are in urgent danger or severe distress, go straight to the school counselor or dial child helpline (16000 or 116111) immediately. You will be protected."
+    ],
+    default: [
+      "I hear you loud and clear. You are valuable, respected, and deserve a supportive environment. Would you like to submit a confidential report so your counselor can step in discreetly?",
+      "Thank you for sharing your thoughts with me. Expressing yourself is the first step toward resolution. What do you feel would help you feel most at ease right now?"
+    ]
+  }
 };
 
-// Views Definition
-const VIEWS = {
+let currentQuoteIdx = Math.floor(Math.random() * MOTIVATION_BANK.length);
+let trackedReportState = null;
+
+// Routing Views
+const APP_VIEWS = {
   home: () => {
-    const mood = STATE.selectedMood;
-    const moodFeedback = {
-      happy: "يسعدنا أنك بخير ومرتاح! ابتسم لزميلك اليوم وانشر طاقتك الطيبة.",
-      anxious: "نحن بجانبك.. القلق شعور طبيعي ويزول، جرب تمرين التنفس السريع.",
-      sad: "لست وحدك، مشاعرك مهمة جداً ومسموعة.. سند بانتظارك ليفضفض معك.",
-      angry: "تنفس بهدوء ولا تتسرع بردة الفعل.. القوة في الحكمة وضبط النفس.",
-      neutral: "يوم جديد وبداية لطيفة.. تصفح نصائح اليوم لتلهم من حولك!"
-    };
+    const t = I18N[currentLang];
+    const q = MOTIVATION_BANK[currentQuoteIdx];
 
     return `
-      <!-- Hero Warm Banner -->
-      <section class="hero-banner">
-        <span class="hero-badge">🌿 مساحة مدرسية آمنة</span>
-        <h2 class="hero-title">صوتك مسموع، أنت لست وحدك</h2>
-        <p class="hero-subtitle">
-          هنا نسمعك بكل سرية واحترام، ونقدم لك أدوات التهدئة والإرشاد لحماية نفسك وزملائك في المدرسة.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#sanad">
-            ${svgIcon('chat', 18)} تحدث مع سند
-          </a>
-          <a class="btn btn-secondary" href="#report">
-            ${svgIcon('lock', 18)} إبلاغ سري
-          </a>
+      <!-- Hero Banner -->
+      <section class="hero-glass">
+        <span class="hero-pill">${t.heroBadge}</span>
+        <h2 class="hero-heading">${t.heroTitle}</h2>
+        <p class="hero-text">${t.heroSubtitle}</p>
+        <div class="hero-buttons">
+          <a class="btn-action btn-vibrant" href="#sanad">${t.btnSanad}</a>
+          <a class="btn-action btn-outline" href="#report">${t.btnReport}</a>
         </div>
       </section>
 
-      <!-- Daily Mood Tracker -->
-      <section class="section-box">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span class="bold" style="font-size:14.5px">كيف تشعر اليوم في المدرسة؟</span>
-          <small class="muted">شاركنا شعورك</small>
+      <!-- Dynamic Daily Motivation Card -->
+      <section class="quote-card" id="quote-wrapper">
+        <div class="quote-header">
+          <span class="quote-tag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            ${t.dailyMotivationTitle}
+          </span>
+          <button class="btn-action btn-outline btn-sm" onclick="shuffleQuote()">${t.btnNewQuote}</button>
         </div>
-        <div class="mood-bar">
-          <button class="mood-item ${mood=='happy'?'active':''}" onclick="setMood('happy')">
-            <span class="mood-emoji">😊</span>مرتاح
-          </button>
-          <button class="mood-item ${mood=='anxious'?'active':''}" onclick="setMood('anxious')">
-            <span class="mood-emoji">😟</span>قلق
-          </button>
-          <button class="mood-item ${mood=='sad'?'active':''}" onclick="setMood('sad')">
-            <span class="mood-emoji">😢</span>حزين
-          </button>
-          <button class="mood-item ${mood=='angry'?'active':''}" onclick="setMood('angry')">
-            <span class="mood-emoji">😡</span>غاضب
-          </button>
-          <button class="mood-item ${mood=='neutral'?'active':''}" onclick="setMood('neutral')">
-            <span class="mood-emoji">😐</span>عادي
-          </button>
-        </div>
-        ${mood ? `<div style="background:var(--mint-light);color:var(--mint-dark);padding:10px 14px;border-radius:var(--radius-sm);margin-top:10px;font-size:13px;font-weight:600">${moodFeedback[mood]}</div>` : ''}
+        <p class="quote-body" id="quote-text">"${q[currentLang]}"</p>
       </section>
 
-      <!-- Educational & Service Cards Grid -->
-      <section>
-        <h3 style="margin-bottom:12px;font-size:16px">خدمات وبرامج التوعية</h3>
-        <div class="cards-grid">
-          
-          <a class="feature-card c-mint" href="#learn">
-            <div class="card-icon-wrap">${svgIcon('book', 22)}</div>
-            <div class="card-content">
-              <h3>ما هو التنمر؟</h3>
-              <p>تعريف مبسط وأشكاله: اللفظي، الإلكتروني، والجسدي</p>
-            </div>
-          </a>
+      <!-- Services Cards Grid -->
+      <section class="services-grid">
+        <a class="card-item c-indigo" href="#learn">
+          <div class="card-icon-pill">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
+          </div>
+          <div>
+            <h3 class="card-title">${t.cardLearnTitle}</h3>
+            <p class="card-desc">${t.cardLearnDesc}</p>
+          </div>
+        </a>
 
-          <a class="feature-card c-sky" href="#protect">
-            <div class="card-icon-wrap">${svgIcon('shield', 22)}</div>
-            <div class="card-content">
-              <h3>احمِ نفسك</h3>
-              <p>نصائح ذهبية وسريعة للتعامل الذكي مع المواقف</p>
-            </div>
-          </a>
+        <a class="card-item c-turquoise" href="#protect">
+          <div class="card-icon-pill">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3 class="card-title">${t.cardProtectTitle}</h3>
+            <p class="card-desc">${t.cardProtectDesc}</p>
+          </div>
+        </a>
 
-          <a class="feature-card c-lavender" href="#sanad">
-            <div class="card-icon-wrap">${svgIcon('chat', 22)}</div>
-            <div class="card-content">
-              <h3>تحدث مع سند</h3>
-              <p>مساحة استماع ودعم نفسي مع المرشد الطلابي</p>
-            </div>
-          </a>
+        <a class="card-item c-mint" href="#sanad">
+          <div class="card-icon-pill">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <h3 class="card-title">${t.cardSanadTitle}</h3>
+            <p class="card-desc">${t.cardSanadDesc}</p>
+          </div>
+        </a>
 
-          <a class="feature-card c-peach" href="#challenges">
-            <div class="card-icon-wrap">${svgIcon('sparkles', 22)}</div>
-            <div class="card-content">
-              <h3>تحديات ولطافة</h3>
-              <p>أنشطة واختبارات لتعزيز الصداقة والإيجابية</p>
-            </div>
-          </a>
+        <a class="card-item c-rose" href="#challenges">
+          <div class="card-icon-pill">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div>
+            <h3 class="card-title">${t.cardChallengesTitle}</h3>
+            <p class="card-desc">${t.cardChallengesDesc}</p>
+          </div>
+        </a>
 
-          <a class="feature-card c-mint card-wide" href="#report">
-            <div class="card-icon-wrap">${svgIcon('lock', 24)}</div>
-            <div class="card-content">
-              <h3>نموذج الإبلاغ السري التفاعلي</h3>
-              <p>أبلغ عن أي موقف يزعجك بسرية تامة دون كشف هويتك ومتابعة برمز كود خاص</p>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <!-- Tip of Day Banner -->
-      <section class="section-box" style="background:var(--cream-pastel);border-color:rgba(207,164,69,0.25)">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-          <span class="bold" style="color:var(--cream-accent);font-size:14px">💡 فكرة اليوم</span>
-          <button class="btn btn-sm btn-secondary" onclick="shareTip('كلمة طيبة واحدة قد تضيء يوماً كاملاً لزميلك المُنكسر. كن الصديق الذي يتمنى الجميع لقاءه.')">
-            ${svgIcon('share', 15)} مشاركة
-          </button>
-        </div>
-        <p style="font-size:14.5px;font-weight:600;margin:0 0 8px">
-          "كلمة طيبة واحدة قد تضيء يوماً كاملاً لزميلك المُنكسر. كن الصديق الذي يتمنى الجميع لقاءه."
-        </p>
+        <a class="card-item c-indigo card-wide-banner" href="#report">
+          <div class="card-icon-pill">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zm-12 0V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <h3 class="card-title">${t.cardReportBannerTitle}</h3>
+            <p class="card-desc">${t.cardReportBannerDesc}</p>
+          </div>
+        </a>
       </section>
     `;
   },
 
-  learn: () => `
-    <h2>ما هو التنمر؟ 📖</h2>
-    <p class="muted">التنمر سلوك غير مقبول ومؤذٍ يتكرر بقصد الإساءة. فهمك له هو خطوتك الأولى للتصدي له.</p>
+  learn: () => {
+    const isAr = currentLang === 'ar';
+    return `
+      <h2>${isAr ? 'ما هو التنمر؟ 📖' : 'What is Bullying? 📖'}</h2>
+      <p class="muted">${isAr ? 'التنمر سلوك عدائي مقصود ومتكرر يهدف لإلحاق الأذى بشخص يشعر بصعوبة في الدفاع عن نفسه.' : 'Bullying is an intentional, repeated aggressive behavior aimed at causing harm where a power imbalance exists.'}</p>
 
-    <div class="section-box" style="border-right:4px solid var(--mint-primary)">
-      <b style="font-size:16px;color:var(--mint-dark)">المعنى البسيط للتنمر:</b>
-      <p style="margin-top:6px;font-size:14px">
-        هو تصرف مؤذٍ مقصود ومتكرر يمارسه شخص أو مجموعة ضد شخص يشعر بصعوبة في الدفاع عن نفسه، ويكون دائماً مصحوباً بخلل في ميزان القوة.
-      </p>
-    </div>
-
-    <h3 style="margin-top:18px">أشكال التنمر الأساسية:</h3>
-
-    <div class="section-box">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-        <span style="font-size:22px">🗣️</span>
-        <b style="font-size:16px">1. التنمر اللفظي</b>
+      <div class="glass-box" style="border-inline-start:4px solid var(--violet-primary)">
+        <h3 style="color:var(--royal-indigo);margin-bottom:6px">${isAr ? 'أشكاله الأساسية الثلاثة:' : 'Three Primary Forms:'}</h3>
+        <p style="font-size:14px;color:var(--text-muted)">${isAr ? 'ينقسم التنمر غالباً إلى ثلاثة أشكال رئيسية يجب الحذر منها:' : 'Bullying predominantly takes three main forms:'}</p>
       </div>
-      <p style="font-size:13.5px;color:var(--text-muted)">يشمل إطلاق ألقاب جارحة، السخرية من الشكل أو اللهجة، التهديد، أو الشتائم المستمرة.</p>
-      <div style="background:var(--mint-light);padding:8px 12px;border-radius:var(--radius-sm);font-size:13px;font-weight:600">
-        💡 الحل الذكي: لا تصدق ما يقال، قل بحزم وهدوء «توقف عن هذا»، ثم غادر المكان.
+
+      <div class="glass-box">
+        <b style="color:var(--violet-primary);font-size:15px">1. ${isAr ? 'التنمر اللفظي' : 'Verbal Bullying'} 🗣️</b>
+        <p style="margin:6px 0 10px;font-size:13.5px">${isAr ? 'سخرية، شتائم متكررة، إطلاق ألقاب مؤذية، أو تهديدات شفهية.' : 'Mocking, chronic name-calling, verbal insults, and threats.'}</p>
       </div>
-    </div>
 
-    <div class="section-box">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-        <span style="font-size:22px">📱</span>
-        <b style="font-size:16px">2. التنمر الإلكتروني</b>
+      <div class="glass-box">
+        <b style="color:var(--cyber-turquoise);font-size:15px">2. ${isAr ? 'التنمر الإلكتروني' : 'Cyberbullying'} 📱</b>
+        <p style="margin:6px 0 10px;font-size:13.5px">${isAr ? 'رسائل كراهية، نشر شائعات وصور، أو استبعاد متعمد من مجموعات الدردشة.' : 'Hate messages, unauthorized photos, malicious gossip, and group chat exclusion.'}</p>
       </div>
-      <p style="font-size:13.5px;color:var(--text-muted)">إرسال رسائل مسيئة في مجموعات الواتساب، نشر صور دون إذن، أو كتابة تعليقات تنمر على حسابات الزملاء.</p>
-      <div style="background:var(--sky-pastel);padding:8px 12px;border-radius:var(--radius-sm);font-size:13px;font-weight:600">
-        💡 الحل الذكي: التقط لقطة شاشة كدليل، احظر المتنمر فوراً، وأخبر والديك دون خوف.
+
+      <div class="glass-box">
+        <b style="color:var(--soft-rose);font-size:15px">3. ${isAr ? 'التنمر الجسدي' : 'Physical Bullying'} ✋</b>
+        <p style="margin:6px 0 10px;font-size:13.5px">${isAr ? 'الدفع، الضرب، التعثر المتعمد، أو سلب وإتلاف المقتنيات المدرسية.' : 'Pushing, hitting, tripping, damaging school supplies, or extortion.'}</p>
       </div>
-    </div>
 
-    <div class="section-box">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-        <span style="font-size:22px">✋</span>
-        <b style="font-size:16px">3. التنمر الجسدي</b>
+      <a class="btn-action btn-vibrant btn-block" href="#protect">${isAr ? 'انتقل إلى إرشادات «احمِ نفسك» 🛡️' : 'Proceed to Protect Yourself 🛡️'}</a>
+    `;
+  },
+
+  protect: () => {
+    const isAr = currentLang === 'ar';
+    return `
+      <h2>${isAr ? 'احمِ نفسك 🛡️' : 'Protect Yourself 🛡️'}</h2>
+      <p class="muted">${isAr ? 'نصائح وقواعد ذهبية سريعة تمنحك الأمان والقوة في وجه المتنمرين.' : 'Golden strategies and smart psychological rules to stay safe and confident.'}</p>
+
+      <div class="glass-box">
+        <ol style="margin:0;padding-inline-start:20px;font-size:14px;line-height:1.8">
+          <li><b>${isAr ? 'لغة الجسد الواثقة:' : 'Confident Body Language:'}</b> ${isAr ? 'قف مستقيماً وانظر في العين مباشرة؛ المتنمر يبحث عن ردود الفعل الضعيفة.' : 'Stand tall and make direct eye contact; bullies seek hesitant reactions.'}</li>
+          <li><b>${isAr ? 'قاعدة الهدوء والحزم:' : 'Calm & Firm Response:'}</b> ${isAr ? 'قل بلهجة واضحة: «توقف عن هذا، كلامك لا يعنيني»، ثم غادر بهدوء.' : 'Say clearly: "Stop this, it does not concern me", then walk away calmly.'}</li>
+          <li><b>${isAr ? 'التوثيق الرقمي:' : 'Digital Evidence:'}</b> ${isAr ? 'التقط لقطة شاشة قبل حظر أي حساب مسيء كدليل قاطع للمرشد.' : 'Capture screenshots before blocking as concrete proof for counselors.'}</li>
+          <li><b>${isAr ? 'طلب المساعدة قوة:' : 'Asking for Help is Power:'}</b> ${isAr ? 'إبلاغ المرشد أو المعلم حماية لنفسك وليس وشاية.' : 'Reaching out to staff protects your rights; it is never snitching.'}</li>
+        </ol>
       </div>
-      <p style="font-size:13.5px;color:var(--text-muted)">الدفع، الضرب، التعثر المتعمد في الممرات، أو إتلاف الكتب والمقتنيات المدرسية بالقوة.</p>
-      <div style="background:var(--peach-pastel);padding:8px 12px;border-radius:var(--radius-sm);font-size:13px;font-weight:600">
-        💡 الحل الذكي: ابتعد إلى مكان يتواجد فيه معلمون، واطلب المساعدة فوراً، ولا تدخل في شجار.
-      </div>
-    </div>
 
-    <div style="margin-top:14px">
-      <a class="btn btn-primary btn-block" href="#protect">انتقل إلى نصائح «احمِ نفسك» 🛡️</a>
-    </div>
-  `,
-
-  protect: () => `
-    <h2>احمِ نفسك 🛡️</h2>
-    <p class="muted">نصائح وإرشادات ذهبية لحماية سلامتك النفسية والجسدية داخل وخارج المدرسة.</p>
-
-    <div class="section-box">
-      <b style="color:var(--mint-dark);font-size:15px">قواعد الحماية الذكية الأربع:</b>
-      <ol style="margin:10px 0 0;padding-right:20px;font-size:14px;line-height:1.8">
-        <li><b>الثقة ولغة الجسد:</b> قف مستقيماً وانظر في عيني المتنمر دون خوف؛ المتنمر يبحث عمن يبدو عليه الانكسار.</li>
-        <li><b>قاعدة الكلمات البسيطة:</b> لا تدخل في جدال طويل، يكفي أن تقول بصوت واضح وثابت: «هذا غير مقبول.. توقف».</li>
-        <li><b>قوة الصداقة:</b> تحرك في الفسحة والممرات مع أصدقاء موثوقين، فالمتنمر يتجنب المجموعات المترابطة.</li>
-        <li><b>التوثيق والإبلاغ:</b> اكتب تاريخ الموقف وما حدث بالضبط، وأبلغ المرشد الطلابي فوراً لحسم الموضوع قانونياً وتربوياً.</li>
-      </ol>
-    </div>
-
-    <div class="section-box" style="background:var(--lavender-pastel);border-color:rgba(134,117,184,0.25)">
-      <b style="color:var(--lavender-accent);font-size:15px">هل أنت شاهد على تنمر ضد زميلك؟</b>
-      <p style="font-size:13.5px;margin:6px 0 10px">صمتك قد يفهمه المتنمر تشجيعاً.. قف بجانب زميلك بكلمة حق أو اذهب معه للمرشد؛ شجاعتك قد تنقذ حياته بالكامل.</p>
-    </div>
-
-    <a class="btn btn-primary btn-block" href="#report">قدّم بلاغاً سرياً لحماية نفسك أو زميلك 🔒</a>
-  `,
+      <a class="btn-action btn-vibrant btn-block" href="#report">${isAr ? 'تقديم بلاغ سري الآن 🔒' : 'Submit Confidential Report 🔒'}</a>
+    `;
+  },
 
   sanad: () => {
-    const history = store.get('sanad_chat_log', [
-      { sender: 'bot', text: SANAD_BOT.intro, time: Date.now() }
+    const isAr = currentLang === 'ar';
+    const history = store.get('sanad_chat_memory', [
+      { sender: 'bot', text: SANAD_ENGINE[currentLang].greetings, time: Date.now() }
     ]);
 
     return `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
         <div>
-          <h2>تحدث مع سند 💬</h2>
-          <p class="muted" style="font-size:12.5px;margin:0">مساحة استماع ودعم نفسي آمنة وسرية مع المرشد</p>
+          <h2>${isAr ? 'تحدث مع سند 💬' : 'Talk with Sanad 💬'}</h2>
+          <p class="muted" style="font-size:12.5px;margin:0">${isAr ? 'رفيق استماع ذكي ودعم نفسي سري 100%' : 'Empathetic AI listener & 100% confidential support'}</p>
         </div>
-        <button class="btn btn-sm btn-peach" onclick="resetSanadChat()">مسح المحادثة 🗑️</button>
+        <button class="btn-action btn-outline btn-sm" onclick="clearSanadMemory()">${isAr ? 'مسح 🗑️' : 'Clear 🗑️'}</button>
       </div>
 
-      <div class="section-box chat-window">
-        <div class="chat-messages" id="chat-stream">
+      <div class="glass-box chat-frame">
+        <div class="chat-scroll" id="chat-thread">
           ${history.map(m => `
-            <div class="message-bubble ${m.sender}">
+            <div class="bubble ${m.sender}">
               ${esc(m.text)}
             </div>
           `).join('')}
         </div>
 
-        <div class="quick-chips-scroll">
-          <button class="chip-btn" onclick="sendQuickChip('شخص يسخر مني بكلام مؤذٍ')">🗣️ كلام جارح وسخرية</button>
-          <button class="chip-btn" onclick="sendQuickChip('أتعرض للتنمر على وسائل التواصل')">📱 تنمر إلكتروني</button>
-          <button class="chip-btn" onclick="sendQuickChip('شخص يدفعني أو يهددني في المدرسة')">✋ أذى جسدي وتهديد</button>
-          <button class="chip-btn" onclick="sendQuickChip('أشعر بالوحدة والحزن الشديد')">😢 أشعر بالحزن والوحدة</button>
-        </div>
-
-        <form class="chat-form-bar" id="chat-submit-form">
-          <input type="text" class="form-control" id="chat-user-input" placeholder="اكتب ما في قلبك هنا..." autocomplete="off">
-          <button class="btn btn-primary" type="submit" style="border-radius:var(--radius-pill);padding:0 18px">إرسال</button>
+        <form style="display:flex;gap:8px;padding-top:10px;border-top:1px solid var(--border-soft)" id="sanad-input-form">
+          <input type="text" class="input-control" id="sanad-user-msg" placeholder="${isAr ? 'فضفض وتحدث بما تشعر به هنا...' : 'Express what is on your mind here...'}" autocomplete="off">
+          <button class="btn-action btn-vibrant" type="submit" style="padding:0 18px">${isAr ? 'إرسال' : 'Send'}</button>
         </form>
       </div>
     `;
   },
 
   challenges: () => {
-    const isFinished = STATE.quizStep >= QUIZ_DATA.length;
-    const currentQ = QUIZ_DATA[STATE.quizStep];
-
+    const isAr = currentLang === 'ar';
     return `
-      <h2>تحديات ولطافة ✨</h2>
-      <p class="muted">اختبارات تفاعلية وأنشطة لتعزيز روح الصداقة والوعي المدرسي الإيجابي.</p>
+      <h2>${isAr ? 'تحديات ولطافة ✨' : 'Kindness & Challenges ✨'}</h2>
+      <p class="muted">${isAr ? 'أنشطة وتحديات يومية لتعزيز الألفة والأمان في البيئة المدرسية.' : 'Daily activities and scenarios promoting harmony and positive school friendships.'}</p>
 
-      <!-- Quiz Box -->
-      <div class="section-box">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-          <b style="color:var(--mint-dark)">اختبار المواقف الذكية</b>
-          <span style="font-size:12px;font-weight:700" class="muted">${isFinished ? 'النتيجة' : `سؤال ${STATE.quizStep + 1} من ${QUIZ_DATA.length}`}</span>
-        </div>
-
-        ${!isFinished ? `
-          <p style="font-size:15px;font-weight:700;margin:10px 0">${currentQ.q}</p>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            ${currentQ.opts.map((opt, idx) => `
-              <button class="btn btn-secondary" style="text-align:start;justify-content:flex-start;padding:12px 16px;border-radius:var(--radius-sm);${STATE.quizAnswer !== null ? (idx === currentQ.correct ? 'background:var(--mint-light);border-color:var(--mint-primary);font-weight:800' : (idx === STATE.quizAnswer ? 'background:var(--danger-pastel);border-color:var(--danger-main)' : 'opacity:0.6')) : ''}"
-                onclick="handleQuizChoice(${idx})" ${STATE.quizAnswer !== null ? 'disabled' : ''}>
-                ${opt}
-              </button>
-            `).join('')}
-          </div>
-
-          ${STATE.quizAnswer !== null ? `
-            <div style="background:var(--sky-pastel);padding:10px 14px;border-radius:var(--radius-sm);margin-top:12px;font-size:13.5px">
-              <b>توجيه ذكي:</b> ${currentQ.tip}
-            </div>
-            <button class="btn btn-primary btn-block" style="margin-top:10px" onclick="nextQuizStep()">
-              ${STATE.quizStep + 1 < QUIZ_DATA.length ? 'الموقف التالي' : 'عرض النتيجة النهائية'}
-            </button>
-          ` : ''}
-        ` : `
-          <div style="text-align:center;padding:14px 0">
-            <span style="font-size:42px">🏆</span>
-            <h3>أحسنت التدريب!</h3>
-            <p class="bold" style="font-size:22px;color:var(--mint-primary);margin:6px 0">درجتك: ${STATE.quizScore} من ${QUIZ_DATA.length}</p>
-            <p class="muted" style="font-size:13.5px">لديك وعي ممتاز بكيفية حماية نفسك ودعم زملائك بالأساليب التربوية السليمة.</p>
-            <button class="btn btn-secondary" onclick="resetQuiz()">إعادة الاختبار</button>
-          </div>
-        `}
+      <div class="glass-box" style="background:var(--emerald-light);border-color:rgba(16,185,129,0.3)">
+        <b style="color:var(--emerald-mint);font-size:15px">🌟 ${isAr ? 'تحدي اللطف لهذا الأسبوع:' : 'Kindness Challenge of the Week:'}</b>
+        <p style="font-size:14px;margin:8px 0">
+          "${isAr ? 'شاهد زميلاً يجلس وحيداً في الفسحة، وبادر بإلقاء التحية وسؤاله عن مادته المفضلة.' : 'Notice a classmate sitting alone during recess, greet them with a warm smile, and ask about their favorite subject.'}"
+        </p>
       </div>
 
-      <!-- Kindness Daily Challenge -->
-      <div class="section-box" style="background:var(--peach-pastel);border-color:rgba(232,139,110,0.25)">
-        <b style="color:var(--peach-accent);font-size:15px">🌟 تحدي اللطف المدرسي اليوم:</b>
-        <p style="font-size:14px;margin:8px 0">
-          "ابحث في الفسحة عن طالب يجلس وحيداً، ألقِ عليه التحية بابتسامة دافئة واسأله عن يومه."
+      <div class="glass-box">
+        <b style="color:var(--royal-indigo);font-size:15px">🤝 ${isAr ? 'ميثاق الاحترام المدرسي:' : 'School Respect Covenant:'}</b>
+        <p style="font-size:13.5px;color:var(--text-muted);margin:8px 0">
+          ${isAr ? 'أنا ألتزم بعدم السخرية من غيري، والوقوف مع من يتعرض للإساءة بكلمة حق.' : 'I pledge never to mock others, and to stand by peers facing adversity with kind words.'}
         </p>
       </div>
     `;
   },
 
   report: () => {
-    const isNew = STATE.reportSubTab === 'new';
-    const c = STATE.trackedReport;
+    const t = I18N[currentLang];
+    const isAr = currentLang === 'ar';
+    const c = trackedReportState;
 
     return `
-      <h2>الإبلاغ السري التفاعلي 🔒</h2>
-      <p class="muted">صوتك محمي وسري تماماً. سيصل البلاغ مباشرة لإدارة الإرشاد والمسؤولين لمعالجة الموقف بحزم وهدوء.</p>
+      <h2>${t.reportHeading}</h2>
+      <p class="muted">${t.reportSub}</p>
 
-      <div class="tabs-wrap">
-        <button class="tab-pill ${isNew?'active':''}" onclick="setReportTab('new')">تقديم بلاغ جديد</button>
-        <button class="tab-pill ${!isNew?'active':''}" onclick="setReportTab('track')">متابعة برمز الكود</button>
+      <div class="glass-box">
+        <form id="incident-reporting-form">
+          <div class="form-field">
+            <label class="form-caption">${t.lblType}</label>
+            <select class="input-control" id="f-type">
+              <option value="لفظي">${isAr ? 'تنمر لفظي (سخرية، شتائم، ألقاب جارحة)' : 'Verbal Bullying (insults, mocking, slurs)'}</option>
+              <option value="إلكتروني">${isAr ? 'تنمر إلكتروني (رسائل مؤذية، شبكات التواصل)' : 'Cyberbullying (online harassment, social media)'}</option>
+              <option value="جسدي">${isAr ? 'تنمر جسدي أو تهديد (دفع، ضرب، إتلاف)' : 'Physical Bullying or Threats (pushing, hitting)'}</option>
+              <option value="نبذ اجتماعي">${isAr ? 'نبذ واستبعاد اجتماعي متعمد' : 'Social Exclusion & Deliberate Ostracism'}</option>
+              <option value="أخرى">${isAr ? 'أخرى' : 'Other'}</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-caption">${t.lblLocation}</label>
+            <input type="text" class="input-control" id="f-location" placeholder="${isAr ? 'مثال: فناء المدرسة، باص المدرسة، قروب واتساب...' : 'e.g. Playground, School Bus, WhatsApp group...'}" required>
+          </div>
+
+          <div class="form-field">
+            <label class="form-caption">${t.lblDetails}</label>
+            <textarea class="input-control" id="f-details" rows="4" placeholder="${isAr ? 'صف الموقف وما حدث بالضبط بكل أمان...' : 'Describe what happened safely and in detail...'}" required></textarea>
+          </div>
+
+          <div class="form-field">
+            <label style="display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;cursor:pointer">
+              <input type="checkbox" id="f-anon" checked style="width:19px;height:19px;accent-color:var(--violet-primary)">
+              ${t.lblAnon}
+            </label>
+          </div>
+
+          <button class="btn-action btn-vibrant btn-block" type="submit">${t.btnSendReport}</button>
+        </form>
       </div>
 
-      ${isNew ? `
-        <div class="section-box">
-          <form id="incident-form">
-            <div class="form-group">
-              <label class="form-label">نوع الإساءة أو التنمر</label>
-              <select class="form-control" id="rep-type" required>
-                <option value="لفظي">تنمر لفظي (سخرية، شتائم، ألقاب مؤذية، تهديد)</option>
-                <option value="جسدي">تنمر جسدي (ضرب، دفع، إتلاف للأدوات المدرسية)</option>
-                <option value="إلكتروني">تنمر إلكتروني (رسائل مؤذية، قروبات، منصات التواصل)</option>
-                <option value="نبذ اجتماعي">نبذ واستبعاد اجتماعي (منع من الجلوس أو اللعب)</option>
-                <option value="أخرى">أخرى</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">أين ومتى حدث الموقف؟</label>
-              <input type="text" class="form-control" id="rep-loc" placeholder="مثال: فناء المدرسة وقت الفسحة، ممر الصفوف..." required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">اكتب تفاصيل الموقف (بكل وضوح)</label>
-              <textarea class="form-control" id="rep-details" rows="4" placeholder="ماذا حدث معك أو مع زميلك؟ ومن الأطراف المشاركة؟" required></textarea>
-            </div>
-
-            <div class="form-group">
-              <label class="form-check">
-                <input type="checkbox" id="rep-anonymous" checked onchange="$('#name-box').style.display=this.checked?'none':'block'">
-                إرسال ببصمة سرية مجهولة 🔒 (لن يعرف أحد هويتك إطلاقاً)
-              </label>
-            </div>
-
-            <div id="name-box" style="display:none;margin-bottom:14px">
-              <label class="form-label">اسمك ورقم الصف (اختياري)</label>
-              <input type="text" class="form-control" id="rep-author" placeholder="مثال: طارق - ثانية ثانوي">
-            </div>
-
-            <button class="btn btn-primary btn-block" type="submit">إرسال البلاغ بسرية تامة 🚀</button>
-          </form>
+      <!-- Secret Case Tracking Query Box -->
+      <div class="glass-box" style="margin-top:18px">
+        <b style="color:var(--royal-indigo);font-size:14.5px">${t.tabTrackReport}</b>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <input type="text" class="input-control" id="track-code-fld" placeholder="${t.trackInputPlaceholder}" style="text-align:center;font-weight:800;letter-spacing:1px">
+          <button class="btn-action btn-outline" onclick="queryReportCode()">${t.btnQuery}</button>
         </div>
-      ` : `
-        <div class="section-box">
-          <label class="form-label">أدخل رمز متابعة البلاغ (الكود الخاص بك):</label>
-          <div style="display:flex;gap:8px;margin-top:6px">
-            <input type="text" class="form-control" id="track-code-input" placeholder="TB-XXXXXX" style="text-align:center;font-weight:800;letter-spacing:1.5px">
-            <button class="btn btn-primary" onclick="queryReportCode()">استعلام</button>
+        ${c ? `
+          <div style="background:var(--violet-light);padding:14px;border-radius:var(--radius-sm);margin-top:12px;border:1px solid var(--violet-primary)">
+            <b style="color:var(--royal-indigo)">Code: ${esc(c.code)} [${esc(c.status)}]</b>
+            <div style="background:var(--bg-card);padding:10px;border-radius:10px;margin-top:8px;font-size:13.5px">
+              <b>${t.counselorLabel}</b>
+              <p style="margin:4px 0 0">${esc(c.reply)}</p>
+            </div>
           </div>
-        </div>
-
-        <div id="track-result-box">
-          ${c ? `
-            <div class="section-box" style="background:var(--mint-light);border-color:var(--mint-primary)">
-              <div style="display:flex;justify-content:space-between;align-items:center">
-                <b style="color:var(--mint-dark)">رمز البلاغ: ${esc(c.code)}</b>
-                <span style="background:var(--mint-primary);color:#fff;padding:2px 10px;border-radius:var(--radius-pill);font-size:11.5px;font-weight:700">
-                  ${esc(c.status || 'تمت المراجعة')}
-                </span>
-              </div>
-              <p style="margin:10px 0 4px;font-size:13.5px">
-                <b>النوع:</b> ${esc(c.type)} | <b>المكان:</b> ${esc(c.location)}
-              </p>
-              <div style="background:var(--card-bg);padding:12px;border-radius:var(--radius-sm);margin-top:8px">
-                <b style="color:var(--mint-dark);font-size:13px">رسالة المرشد الطلابي:</b>
-                <p style="margin:4px 0 0;font-size:13.5px">${esc(c.counselor_reply || 'شكراً لشجاعتك. تمت مراجعة الموقف وسيتم التعامل مع المتنمر بحزم وسرية دون ذكر اسمك. أنت بأمان كامل.')}</p>
-              </div>
-            </div>
-          ` : ''}
-        </div>
-      `}
+        ` : ''}
+      </div>
     `;
   },
 
-  help: () => `
-    <h2>حقيبة التهدئة والمساعدة العاجلة 🆘</h2>
-    <p class="muted">إذا كنت تشعر بالتوتر، الخوف، أو ضربات قلبك متسارعة.. توقف الآن واستعد هدوءك خطوة بخطوة.</p>
-
-    <!-- 4-7-8 Breathing Circle Widget -->
-    <div class="section-box" style="text-align:center">
-      <b style="font-size:15px;color:var(--mint-dark)">تمرين التنفس الهادئ (4-7-8)</b>
-      <p class="muted" style="font-size:12.5px;margin:4px 0 8px">شهيق لـ 4 ثوانٍ، احبس لـ 7 ثوانٍ، ثم زفير هادئ لـ 8 ثوانٍ</p>
-      
-      <div id="breath-circle" class="${STATE.breathingActive ? 'inhale' : ''}">
-        <span id="breath-label">${STATE.breathingActive ? 'شهيق...' : 'جاهز'}</span>
-      </div>
-
-      <button class="btn btn-secondary" onclick="toggleBreathing()">
-        ${STATE.breathingActive ? 'إيقاف التمرين' : 'ابدأ تمرين التنفس الآن'}
-      </button>
-    </div>
-
-    <!-- Official School Hotlines -->
-    <div class="section-box" style="background:var(--peach-pastel);border-color:rgba(232,139,110,0.25)">
-      <b style="color:#8F4C36;font-size:15px">خطوط الدعم وحماية الطفل الرسمية:</b>
-      <p style="font-size:13px;margin:6px 0 12px">خدمات مجانية بالكامل ومتاحة بسرية على مدار الساعة:</p>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <a class="btn btn-primary" style="background:#28A745" href="tel:16000">📞 خط نجدة الطفل المجاني (16000)</a>
-        <a class="btn btn-secondary" href="tel:116111">📞 خط مساندة الطفل (116111)</a>
-      </div>
-    </div>
-  `,
-
   alerts: () => {
-    const list = store.get('inbox_alerts', [
-      { title: 'مرحباً بك في معاً ضد التنمر', body: 'مكانك الآمن للتعبير والدعم المدرسي.', time: Date.now(), read: 0 },
-      { title: 'فكرة اليوم', body: 'تذكر أن قيمتك الحقيقية بداخلك، ولن ينقص منها كلام متنمر.', time: Date.now() - 3600000, read: 1 }
-    ]);
-
+    const isAr = currentLang === 'ar';
     return `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <h2>صندوق الإشعارات والتنبيهات 🔔</h2>
-        <button class="btn btn-sm btn-secondary" onclick="markAllAlertsRead()">تعليم الكل كمقروء</button>
-      </div>
-
-      <div>
-        ${list.map(item => `
-          <div class="section-box" style="margin-bottom:10px;${item.read ? '' : 'border-right:4px solid var(--mint-primary);background:var(--mint-light)'}">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <b style="font-size:14.5px">${esc(item.title)}</b>
-              <small class="muted">${formatTimeAgo(item.time)}</small>
-            </div>
-            <p style="margin:4px 0 0;font-size:13.5px">${esc(item.body)}</p>
-          </div>
-        `).join('')}
-      </div>
-
-      <div style="margin-top:14px">
-        <button class="btn btn-secondary btn-block" onclick="pushInstantTip()">أرسل لي نصيحة وتذكيراً الآن 💡</button>
+      <h2>${isAr ? 'صندوق التنبيهات 🔔' : 'Notifications & Alerts 🔔'}</h2>
+      <div class="glass-box">
+        <b style="color:var(--royal-indigo)">${isAr ? 'مرحباً بك في المنصة الرسمية' : 'Welcome to the Official Platform'}</b>
+        <p style="font-size:13.5px;color:var(--text-muted);margin:4px 0 0">${isAr ? 'تم تفعيل التحديث العصري الجديد بنجاح مع دعم كامل للغتين وحماية البيانات.' : 'The modern upgrade is fully active with dual language and full data privacy.'}</p>
       </div>
     `;
   }
 };
 
-// Router & View Rendering
-function navigate() {
+// Language Switcher Function
+function toggleLanguage() {
+  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  store.set('app_language', currentLang);
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+  
+  $('#lang-text').textContent = currentLang === 'ar' ? 'EN' : 'عربي';
+  $('#i18n-brand-name').textContent = I18N[currentLang].brandName;
+  $('#i18n-safe-badge').textContent = I18N[currentLang].safeBadge;
+
+  // Gate text updates
+  $('#gate-title').textContent = I18N[currentLang].gateTitle;
+  $('#gate-desc').textContent = I18N[currentLang].gateDesc;
+  $('#gate-install-btn-text').textContent = I18N[currentLang].gateInstallBtn;
+  $('#gate-skip-text').textContent = I18N[currentLang].gateSkip;
+  $('#ios-title').textContent = I18N[currentLang].iosTitle;
+  $('#ios-steps').innerHTML = I18N[currentLang].iosSteps;
+
+  renderApp();
+}
+
+// Quote Randomizer
+function shuffleQuote() {
+  const wrapper = $('#quote-wrapper');
+  if (wrapper) wrapper.classList.add('fade');
+  setTimeout(() => {
+    currentQuoteIdx = (currentQuoteIdx + 1) % MOTIVATION_BANK.length;
+    const qEl = $('#quote-text');
+    if (qEl) qEl.textContent = `"${MOTIVATION_BANK[currentQuoteIdx][currentLang]}"`;
+    if (wrapper) wrapper.classList.remove('fade');
+  }, 200);
+}
+
+// Router Renderer
+function renderApp() {
   const hash = (location.hash || '#home').slice(1);
-  const route = VIEWS[hash] ? hash : 'home';
-  STATE.activeTab = route;
+  const route = APP_VIEWS[hash] ? hash : 'home';
+  $('#viewport').innerHTML = APP_VIEWS[route]();
 
-  $('#main-view').innerHTML = VIEWS[route]();
-
-  // Bottom navigation update
-  const navItems = [
-    ['home', 'home', 'الرئيسية'],
-    ['learn', 'book', 'عن التنمر'],
-    ['protect', 'shield', 'احمِ نفسك'],
-    ['sanad', 'chat', 'سند'],
-    ['challenges', 'sparkles', 'تحديات'],
-    ['report', 'lock', 'إبلاغ سري']
+  const t = I18N[currentLang];
+  const navTabs = [
+    ['home', '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10"/>', t.navHome],
+    ['learn', '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/>', t.navLearn],
+    ['protect', '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>', t.navProtect],
+    ['sanad', '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>', t.navSanad],
+    ['challenges', '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/>', t.navChallenges],
+    ['report', '<path d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zm-12 0V7a5 5 0 0 1 10 0v4"/>', t.navReport]
   ];
 
-  $('#bottom-nav').innerHTML = navItems.map(item => `
-    <a class="nav-link ${item[0] === route ? 'active' : ''}" href="#${item[0]}">
-      ${svgIcon(item[1], 20)}
+  $('#app-nav').innerHTML = navTabs.map(item => `
+    <a class="nav-tab ${item[0] === route ? 'active' : ''}" href="#${item[0]}">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${item[1]}</svg>
       <span>${item[2]}</span>
     </a>
   `).join('');
 
   window.scrollTo(0, 0);
-  updateBellBadge();
+}
+window.addEventListener('hashchange', renderApp);
+
+// Toast Trigger
+function popToast(msg) {
+  const t = $('#toast-notification');
+  t.innerHTML = `<span style="font-size:22px">✨</span><span style="font-weight:700">${esc(msg)}</span>`;
+  t.classList.add('active');
+  setTimeout(() => t.classList.remove('active'), 4000);
 }
 
-window.addEventListener('hashchange', navigate);
-
-// Badge Count
-function updateBellBadge() {
-  const unread = store.get('inbox_alerts', []).filter(a => !a.read).length;
-  const bellBtn = $('#bell-btn');
-  if (bellBtn) {
-    bellBtn.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-      </svg>
-      ${unread ? `<span class="badge-count">${unread}</span>` : ''}
-    `;
+// Sanad Chat Logic
+function clearSanadMemory() {
+  if (confirm(currentLang === 'ar' ? 'هل تريد مسح سجل المحادثة؟' : 'Clear conversation history?')) {
+    store.set('sanad_chat_memory', [{ sender: 'bot', text: SANAD_ENGINE[currentLang].greetings, time: Date.now() }]);
+    renderApp();
   }
 }
 
-// Toast
-function showToast(title, desc) {
-  const t = $('#app-toast');
-  t.innerHTML = `
-    <div style="font-size:22px">✨</div>
-    <div>
-      <b style="display:block;font-size:14.5px;color:var(--mint-dark)">${esc(title)}</b>
-      <div style="font-size:13px;opacity:0.9">${esc(desc)}</div>
-    </div>
-  `;
-  t.className = 'show';
-  clearTimeout(showToast.timer);
-  showToast.timer = setTimeout(() => { t.className = ''; }, 4500);
-}
-
-// Mood Picker
-function setMood(m) {
-  STATE.selectedMood = m;
-  store.set('mood_choice', m);
-  navigate();
-}
-
-// Sub Tabs (Report)
-function setReportTab(tab) {
-  STATE.reportSubTab = tab;
-  navigate();
-}
-
-// Quiz Handlers
-function handleQuizChoice(idx) {
-  STATE.quizAnswer = idx;
-  if (idx === QUIZ_DATA[STATE.quizStep].correct) {
-    STATE.quizScore++;
-  }
-  navigate();
-}
-function nextQuizStep() {
-  STATE.quizStep++;
-  STATE.quizAnswer = null;
-  navigate();
-}
-function resetQuiz() {
-  STATE.quizStep = 0;
-  STATE.quizScore = 0;
-  STATE.quizAnswer = null;
-  navigate();
-}
-
-// Chat Handlers (Sanad)
-function sendQuickChip(text) {
-  const input = $('#chat-user-input');
-  if (input) input.value = text;
-  handleChatSubmit(text);
-}
-
-function handleChatSubmit(text) {
-  if (!text || !text.trim()) return;
-  const history = store.get('sanad_chat_log', []);
-  history.push({ sender: 'user', text: text.trim(), time: Date.now() });
-  store.set('sanad_chat_log', history);
-  navigate();
-
-  setTimeout(() => {
-    let reply = SANAD_BOT.default;
-    const lower = text.toLowerCase();
-    if (lower.includes('لفظ') || lower.includes('كلام') || lower.includes('سخرية') || lower.includes('سب')) reply = SANAD_BOT.verbal;
-    else if (lower.includes('نت') || lower.includes('واتس') || lower.includes('صورة') || lower.includes('إلكتروني')) reply = SANAD_BOT.cyber;
-    else if (lower.includes('ضرب') || lower.includes('دفع') || lower.includes('جسدي')) reply = SANAD_BOT.physical;
-    else if (lower.includes('حزين') || lower.includes('وحد') || lower.includes('ضيق')) reply = SANAD_BOT.sad;
-
-    history.push({ sender: 'bot', text: reply, time: Date.now() });
-    store.set('sanad_chat_log', history);
-    navigate();
-
-    const stream = $('#chat-stream');
-    if (stream) stream.scrollTop = stream.scrollHeight;
-  }, 500);
-}
-
-function resetSanadChat() {
-  if (confirm('هل تريد مسح سجل المحادثة للخصوصية؟')) {
-    store.set('sanad_chat_log', [{ sender: 'bot', text: SANAD_BOT.intro, time: Date.now() }]);
-    navigate();
-  }
-}
-
-// Report Form Submission
 document.addEventListener('submit', e => {
-  if (e.target.id === 'chat-submit-form') {
+  if (e.target.id === 'sanad-input-form') {
     e.preventDefault();
-    const input = $('#chat-user-input');
+    const input = $('#sanad-user-msg');
     const val = input.value.trim();
-    if (val) {
-      input.value = '';
-      handleChatSubmit(val);
-    }
+    if (!val) return;
+    input.value = '';
+
+    const memory = store.get('sanad_chat_memory', []);
+    memory.push({ sender: 'user', text: val, time: Date.now() });
+    store.set('sanad_chat_memory', memory);
+    renderApp();
+
+    setTimeout(() => {
+      const lower = val.toLowerCase();
+      const eng = SANAD_ENGINE[currentLang];
+      let pool = eng.default;
+
+      if (lower.includes('موت') || lower.includes('أقتل') || lower.includes('انتحار') || lower.includes('kill') || lower.includes('die') || lower.includes('danger')) {
+        pool = eng.urgent;
+      } else if (lower.includes('ضرب') || lower.includes('دفع') || lower.includes('جسد') || lower.includes('hit') || lower.includes('push') || lower.includes('threat')) {
+        pool = eng.physical;
+      } else if (lower.includes('سب') || lower.includes('شتيمة') || lower.includes('كلام') || lower.includes('سخرية') || lower.includes('insult') || lower.includes('mock')) {
+        pool = eng.verbal;
+      } else if (lower.includes('نت') || lower.includes('واتس') || lower.includes('صورة') || lower.includes('قروب') || lower.includes('online') || lower.includes('chat')) {
+        pool = eng.cyber;
+      } else if (lower.includes('حزين') || lower.includes('وحد') || lower.includes('ضيق') || lower.includes('sad') || lower.includes('alone') || lower.includes('cry')) {
+        pool = eng.sad;
+      }
+
+      const botReply = pool[Math.floor(Math.random() * pool.length)];
+      memory.push({ sender: 'bot', text: botReply, time: Date.now() });
+      store.set('sanad_chat_memory', memory);
+      renderApp();
+
+      const thread = $('#chat-thread');
+      if (thread) thread.scrollTop = thread.scrollHeight;
+    }, 550);
   }
 
-  if (e.target.id === 'incident-form') {
+  if (e.target.id === 'incident-reporting-form') {
     e.preventDefault();
-    const type = $('#rep-type').value;
-    const location = $('#rep-loc').value.trim();
-    const details = $('#rep-details').value.trim();
-    const isAnon = $('#rep-anonymous').checked;
-    const author = isAnon ? 'مجهول (سري)' : ($('#rep-author').value.trim() || 'طالب');
+    const type = $('#f-type').value;
+    const loc = $('#f-location').value.trim();
+    const det = $('#f-details').value.trim();
+    const anon = $('#f-anon').checked;
 
     const code = 'TB-' + Math.floor(100000 + Math.random() * 900000);
-    const reports = store.get('school_reports', []);
-    const newReport = {
+    const reports = store.get('all_school_reports', []);
+    const newRep = {
       code,
       type,
-      location,
-      details,
-      author,
-      anon: isAnon,
+      location: loc,
+      details: det,
+      anon,
       time: Date.now(),
-      status: 'قيد المراجعة السرية',
-      counselor_reply: 'تم استلام البلاغ ومراجعته من الإرشاد الطلابي. تم اتخاذ الإجراء التربوي الصارم وسري لحمايتك دون ذكر أي تفاصيل عن هويتك.'
+      status: currentLang === 'ar' ? 'قيد المراجعة السرية' : 'Under Confidential Review',
+      reply: currentLang === 'ar' 
+        ? 'تم استلام البلاغ ومراجعته من الإرشاد الطلابي. تم اتخاذ الإجراء التربوي الصارم وسري لحمايتك دون ذكر أي تفاصيل عن هويتك.' 
+        : 'Report received and reviewed by school counselors. Discreet protective measures have been initiated to ensure your safety.'
     };
-    reports.push(newReport);
-    store.set('school_reports', reports);
+    reports.push(newRep);
+    store.set('all_school_reports', reports);
 
-    STATE.trackedReport = newReport;
-    STATE.reportSubTab = 'track';
-
-    showToast('تم استلام بلاغك بأمان 🔒', `احفظ رمز المتابعة الخاص بك: ${code}`);
-    navigate();
+    trackedReportState = newRep;
+    popToast(currentLang === 'ar' ? `تم استلام بلاغك! رمز المتابعة: ${code}` : `Report filed! Tracking code: ${code}`);
+    renderApp();
   }
 });
 
-// Query Report Code
 function queryReportCode() {
-  const code = ($('#track-code-input').value || '').trim().toUpperCase();
-  const reports = store.get('school_reports', []);
-  const found = reports.find(r => r.code === code);
-  if (found) {
-    STATE.trackedReport = found;
+  const code = ($('#track-code-fld').value || '').trim().toUpperCase();
+  const reps = store.get('all_school_reports', []);
+  const found = reps.find(r => r.code === code);
+  trackedReportState = found || {
+    code: code || 'TB-DEMO',
+    status: currentLang === 'ar' ? 'تمت المعالجة والإغلاق' : 'Resolved',
+    reply: currentLang === 'ar' ? 'تمت متابعة الحالة والتأكد من سلامة الطالب ووقف أي سلوك غير لائق.' : 'Case monitored and confirmed safe by administration.'
+  };
+  renderApp();
+}
+
+// Install Gate Logic
+let deferredPromptEvent = null;
+const isPWAStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPromptEvent = e;
+  if (!isPWAStandalone && !store.get('gate_dismissed', 0)) {
+    $('#install-gate').classList.remove('hidden');
+  }
+});
+
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+function checkInstallGate() {
+  if (isPWAStandalone || store.get('gate_dismissed', 0)) {
+    $('#install-gate').classList.add('hidden');
+    return;
+  }
+  $('#install-gate').classList.remove('hidden');
+
+  if (isIOS) {
+    $('#android-gate-action').style.display = 'none';
+    $('#ios-gate-action').style.display = 'block';
+  }
+}
+
+$('#pwa-gate-btn').addEventListener('click', () => {
+  if (deferredPromptEvent) {
+    deferredPromptEvent.prompt();
+    deferredPromptEvent.userChoice.then(() => {
+      deferredPromptEvent = null;
+      $('#install-gate').classList.add('hidden');
+    });
   } else {
-    STATE.trackedReport = {
-      code: code || 'TB-DEMO',
-      type: 'بلاغ مدرسي',
-      location: 'ساحة المدرسة',
-      status: 'تمت المعالجة والإغلاق',
-      counselor_reply: 'تمت متابعة الحالة والتأكد من سلامة الطالب ووقف أي سلوك غير لائق.'
-    };
+    popToast(currentLang === 'ar' ? 'اختر إضافة إلى الشاشة الرئيسية من إعدادات المتصفح' : 'Choose Add to Home Screen from browser options');
   }
-  navigate();
+});
+
+function dismissInstallGate() {
+  store.set('gate_dismissed', 1);
+  $('#install-gate').classList.add('hidden');
+  popToast(currentLang === 'ar' ? 'تم فتح المعاينة التجريبية بنجاح' : 'Preview mode enabled');
 }
 
-// Breathing 4-7-8
-let breathTimer = null;
-function toggleBreathing() {
-  if (STATE.breathingActive) {
-    clearTimeout(breathTimer);
-    STATE.breathingActive = false;
-    navigate();
-  } else {
-    STATE.breathingActive = true;
-    navigate();
-    runBreathing();
-  }
-}
-
-function runBreathing() {
-  const circle = $('#breath-circle');
-  const label = $('#breath-label');
-  if (!circle || !label) return;
-
-  function cycle() {
-    if (!STATE.breathingActive) return;
-    circle.className = 'inhale';
-    label.textContent = 'شهيق (4 ثوانٍ)...';
-    breathTimer = setTimeout(() => {
-      if (!STATE.breathingActive) return;
-      circle.className = 'hold';
-      label.textContent = 'احبس النفس (7 ثوانٍ)...';
-      breathTimer = setTimeout(() => {
-        if (!STATE.breathingActive) return;
-        circle.className = 'exhale';
-        label.textContent = 'زفير هادئ (8 ثوانٍ)...';
-        breathTimer = setTimeout(cycle, 8000);
-      }, 7000);
-    }, 4000);
-  }
-  cycle();
-}
-
-// Share & Copy Tip
-function shareTip(text) {
-  const shareText = `🌿 رسالة دعم من تطبيق «معاً ضد التنمر»:\n"${text}"\n\nصوتك مسموع، وأنت لست وحدك.`;
-  if (navigator.share) {
-    navigator.share({ title: 'معاً ضد التنمر', text: shareText }).catch(() => {});
-  } else {
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, '_blank');
-  }
-}
-
-function pushInstantTip() {
-  const tips = [
-    "تذكر: قوة شخصيتك تظهر عندما ترفض السخرية من غيرك وتقف مع الحق.",
-    "الإبلاغ عن التنمر شجاعة تحمي بها مجتمعك المدرسي وليست وشاية.",
-    "ما يحدث ليس خطأك أبداً؛ لا تدع كلمات متنمر تهز يقينك بنفسك."
-  ];
-  const r = tips[Math.floor(Math.random() * tips.length)];
-  const alerts = store.get('inbox_alerts', []);
-  alerts.unshift({ title: 'نصيحة جديدة لك 💡', body: r, time: Date.now(), read: 0 });
-  store.set('inbox_alerts', alerts.slice(0, 25));
-  updateBellBadge();
-  showToast('نصيحة جديدة', r);
-}
-
-function markAllAlertsRead() {
-  const alerts = store.get('inbox_alerts', []);
-  alerts.forEach(a => a.read = 1);
-  store.set('inbox_alerts', alerts);
-  updateBellBadge();
-  navigate();
-}
-
-function formatTimeAgo(ts) {
-  const s = Math.floor((Date.now() - ts) / 1000);
-  if (s < 60) return 'الآن';
-  const m = Math.floor(s / 60);
-  if (m < 60) return `منذ ${m} د`;
-  const h = Math.floor(m / 60);
-  if (h < 24) return `منذ ${h} س`;
-  return `منذ ${Math.floor(h / 24)} ي`;
-}
-
-// Theme Toggle
-const themeBtn = $('#theme-toggle');
-if (themeBtn) {
-  themeBtn.addEventListener('click', () => {
-    const cur = document.documentElement.getAttribute('data-theme') || 'light';
-    const next = cur === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    store.set('app_theme', next);
-  });
-}
-const savedTheme = store.get('app_theme', null);
+// Dark Mode Toggle
+$('#theme-btn').addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  store.set('pwa_theme', next);
+});
+const savedTheme = store.get('pwa_theme', null);
 if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
 
-// Service Worker Registration for PWA
+// Boot Application
+document.documentElement.lang = currentLang;
+document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+$('#lang-text').textContent = currentLang === 'ar' ? 'EN' : 'عربي';
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   });
 }
 
-// Initial Boot
-navigate();
+checkInstallGate();
+renderApp();
 </script>
 </body>
 </html>

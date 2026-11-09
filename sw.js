@@ -1,10 +1,12 @@
-const CACHE_NAME = 'maan-v2';
+const CACHE_NAME = 'maan-v3';
 const ASSETS = [
   './',
   'index.html',
   'manifest.webmanifest',
   'icon-192.png',
-  'icon-512.png'
+  'icon-512.png',
+  'icon.svg',
+  'favicon.png'
 ];
 
 self.addEventListener('install', event => {

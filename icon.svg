@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" />
+      <stop offset="50%" stop-color="#312E81" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="45%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="50%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Backdrop -->
+  <rect x="24" y="24" width="464" height="464" rx="128" fill="url(#bgGrad)" />
+
+  <!-- Shield Aura / Ambient Light -->
+  <path d="M256 90 L390 140 C390 280 256 385 256 385 C256 385 122 280 122 140 Z" 
+        fill="none" stroke="#06B6D4" stroke-width="32" opacity="0.3" filter="url(#glow)" />
+
+  <!-- 3D Intertwined Shield -->
+  <path d="M256 95 L385 145 C385 275 256 380 256 380 C256 380 127 275 127 145 Z" 
+        fill="#1E1B4B" stroke="url(#shieldGrad)" stroke-width="18" stroke-linejoin="round" />
+
+  <!-- Intertwined Glowing Heart -->
+  <path d="M256 335 C256 335 175 275 175 205 C175 165 205 145 235 165 C256 180 256 180 256 180 C256 180 256 180 277 165 C307 145 337 165 337 205 C337 275 256 335 256 335 Z" 
+        fill="url(#heartGrad)" filter="url(#glow)" opacity="0.95" />
+
+  <!-- Heart Specular Light Accent -->
+  <ellipse cx="215" cy="180" rx="18" ry="10" transform="rotate(-30 215 180)" fill="#FFFFFF" opacity="0.6" />
+</svg>
