@@ -1,0 +1,28 @@
+{
+  "name": "معاً ضد التنمر",
+  "short_name": "معاً",
+  "description": "منصة تفاعلية آمنة للاستماع، والدعم النفسي، والإبلاغ السري، والتوعية ضد التنمر.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#FBF6EC",
+  "theme_color": "#4F7D63",
+  "categories": ["education", "lifestyle", "social"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

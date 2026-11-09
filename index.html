@@ -1,0 +1,1678 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4F7D63">
+<meta name="description" content="منصة تفاعلية آمنة للاستماع، والدعم النفسي، والإبلاغ السري، والتوعية ضد التنمر.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>معاً ضد التنمر | مساحتك الآمنة</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+:root {
+  --bg: #FBF6EC;
+  --cd: #FFFFFF;
+  --tx: #26332E;
+  --mu: #5A6D65;
+  --ac: #4F7D63;
+  --ac-lt: #E8F2EC;
+  --ax: #FFFFFF;
+  --sage: #D5E5D8;
+  --sky: #D8E8F5;
+  --lav: #E5DFFA;
+  --pea: #FCE8DC;
+  --cr: #F5EEDB;
+  --ln: #D2E0D6;
+  --hd: #1E382B;
+  --err: #C2433E;
+  --err-bg: #FDEDEC;
+  --warn: #D97706;
+  --shadow: 0 4px 18px rgba(35, 55, 45, 0.07);
+  --shadow-lg: 0 10px 30px rgba(35, 55, 45, 0.12);
+  --rad: 22px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #151D1A;
+    --cd: #1F2B26;
+    --tx: #E8EFEA;
+    --mu: #9FB2A9;
+    --ac: #78B593;
+    --ac-lt: #223B2E;
+    --ax: #0E1813;
+    --sage: #283C32;
+    --sky: #22384A;
+    --lav: #352F4A;
+    --pea: #463428;
+    --cr: #383427;
+    --ln: #33443C;
+    --hd: #D6EDE0;
+    --err: #F38B87;
+    --err-bg: #3E1E1C;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #151D1A;
+  --cd: #1F2B26;
+  --tx: #E8EFEA;
+  --mu: #9FB2A9;
+  --ac: #78B593;
+  --ac-lt: #223B2E;
+  --ax: #0E1813;
+  --sage: #283C32;
+  --sky: #22384A;
+  --lav: #352F4A;
+  --pea: #463428;
+  --cr: #383427;
+  --ln: #33443C;
+  --hd: #D6EDE0;
+  --err: #F38B87;
+  --err-bg: #3E1E1C;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font-family: 'Tajawal', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+#app {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 14px 18px 120px;
+}
+h1, h2, h3, h4 { color: var(--hd); font-weight: 800; margin: 0 0 10px; line-height: 1.3; }
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+h3 { font-size: 18px; }
+p { margin: 0 0 12px; }
+.mu { color: var(--mu); }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 3px solid var(--ac); outline-offset: 2px; }
+
+/* Components */
+.c {
+  background: var(--cd);
+  border-radius: var(--rad);
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--ln);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 25px;
+  border: none;
+  background: var(--ac);
+  color: var(--ax);
+  font: 700 17px 'Tajawal', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 10px 18px;
+  transition: transform 0.12s ease, opacity 0.15s ease, filter 0.15s ease;
+}
+.btn:active { transform: scale(0.98); }
+.btn:hover { filter: brightness(1.04); }
+.btn.s { background: var(--sage); color: var(--tx); }
+.btn.l { background: var(--lav); color: var(--tx); }
+.btn.p { background: var(--pea); color: var(--tx); }
+.btn.sm { min-height: 38px; font-size: 14px; border-radius: 19px; padding: 6px 14px; width: auto; }
+.btn.danger { background: var(--err); color: #fff; }
+
+.g { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.t {
+  border-radius: 22px;
+  padding: 16px;
+  min-height: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.15s ease;
+}
+.t:active { transform: scale(0.97); }
+.t b { font-size: 18px; display: block; margin-top: 6px; }
+.t small { color: var(--mu); font-size: 13px; font-weight: 500; }
+.w { grid-column: 1 / 3; min-height: 94px; }
+
+.ib {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background: var(--cd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+svg.i { stroke: var(--hd); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button {
+  flex: 1;
+  white-space: nowrap;
+  min-height: 44px;
+  border-radius: 22px;
+  border: 1.5px solid var(--ln);
+  background: var(--cd);
+  color: var(--tx);
+  font: 700 14px 'Tajawal', sans-serif;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: all 0.15s ease;
+}
+.tabs button[aria-pressed="true"] {
+  background: var(--ac);
+  color: var(--ax);
+  border-color: var(--ac);
+}
+
+/* Forms */
+label { display: block; font-weight: 700; margin: 12px 0 6px; font-size: 15px; }
+input[type=text], select, textarea {
+  width: 100%;
+  border-radius: 16px;
+  border: 1.5px solid var(--ln);
+  background: var(--cd);
+  color: var(--tx);
+  padding: 12px 14px;
+  font: 16px 'Tajawal', sans-serif;
+  transition: border-color 0.2s;
+}
+input[type=text]:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--ac);
+}
+.ck { display: flex; align-items: center; gap: 10px; font-weight: 500; cursor: pointer; }
+.ck input { width: 22px; height: 22px; accent-color: var(--ac); cursor: pointer; }
+
+/* Top Header */
+#top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  border-bottom: 1px solid transparent;
+}
+#top.scrolled { border-bottom-color: var(--ln); }
+#top .brand {
+  font-weight: 800;
+  color: var(--hd);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.top-actions { display: flex; align-items: center; gap: 8px; }
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 21px;
+  background: var(--cd);
+  border: 1px solid var(--ln);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  color: var(--hd);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.icon-btn .bd {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--err);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+.sos-badge {
+  background: var(--err-bg);
+  color: var(--err);
+  border: 1.5px solid var(--err);
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Bottom Nav */
+#nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: var(--cd);
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 6px calc(10px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -4px 20px rgba(35, 55, 45, 0.08);
+  border-top: 1px solid var(--ln);
+  max-width: 540px;
+  margin: 0 auto;
+}
+#nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 8px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 52px;
+  color: var(--mu);
+  transition: all 0.15s ease;
+}
+#nav a svg { stroke: var(--mu); }
+#nav a[aria-current="page"] {
+  background: var(--ac-lt);
+  color: var(--ac);
+}
+#nav a[aria-current="page"] svg { stroke: var(--ac); }
+
+/* Toast */
+#toast {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translate(-50%, -180%);
+  width: min(480px, 92vw);
+  background: var(--cd);
+  color: var(--tx);
+  border-radius: 18px;
+  padding: 14px 18px;
+  box-shadow: var(--shadow-lg);
+  border: 1.5px solid var(--ac);
+  transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#toast.show { transform: translate(-50%, 0); }
+
+/* PWA Install Banner */
+#install-banner {
+  display: none;
+  background: linear-gradient(135deg, var(--ac), #365B47);
+  color: #fff;
+  border-radius: 20px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+#install-banner.show { display: flex; }
+
+/* Breathing Circle */
+#bc {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--sage);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--hd);
+  transition: transform 3.5s ease-in-out, background-color 2s ease;
+  box-shadow: 0 0 0 10px rgba(120, 181, 147, 0.15);
+}
+#bc.inhale { transform: scale(1.35); background: #BDE0C6; }
+#bc.hold { transform: scale(1.35); background: var(--lav); }
+#bc.exhale { transform: scale(0.85); background: var(--pea); }
+
+/* Mood Selector */
+.mood-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 12px 0 6px;
+}
+.mood-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 4px;
+  border-radius: 16px;
+  border: 1.5px solid var(--ln);
+  background: var(--cd);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--tx);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.mood-btn:hover { background: var(--ac-lt); border-color: var(--ac); }
+.mood-btn.selected { background: var(--ac-lt); border-color: var(--ac); transform: scale(1.05); }
+.mood-emoji { font-size: 24px; line-height: 1; }
+
+/* Chat (Sanad) */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 230px);
+  min-height: 420px;
+}
+.chat-history {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 4px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chat-bubble {
+  max-width: 82%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  line-height: 1.55;
+  font-size: 15px;
+  word-wrap: break-word;
+}
+.chat-bubble.bot {
+  align-self: flex-start;
+  background: var(--cd);
+  border: 1px solid var(--ln);
+  border-bottom-right-radius: 4px;
+}
+.chat-bubble.user {
+  align-self: flex-end;
+  background: var(--ac);
+  color: var(--ax);
+  border-bottom-left-radius: 4px;
+}
+.chat-quick-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 2px;
+  scrollbar-width: none;
+}
+.chat-quick-chips::-webkit-scrollbar { display: none; }
+.chip {
+  white-space: nowrap;
+  background: var(--cd);
+  border: 1px solid var(--ln);
+  padding: 8px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--hd);
+  transition: all 0.12s ease;
+}
+.chip:active { transform: scale(0.96); }
+.chat-input-bar {
+  display: flex;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ln);
+}
+.chat-input-bar input { flex: 1; border-radius: 25px; }
+
+/* Community Feed */
+.card-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.tag-vent { background: var(--pea); color: #8F4C23; }
+.tag-kind { background: var(--sage); color: #2D6142; }
+
+/* Options in quiz */
+.opt {
+  display: block;
+  width: 100%;
+  text-align: start;
+  min-height: 50px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  border: 1.5px solid var(--ln);
+  background: var(--cd);
+  color: var(--tx);
+  padding: 12px 16px;
+  font: 500 15px 'Tajawal', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.opt.ok { background: var(--sage); border-color: var(--ac); font-weight: 700; }
+.opt.no { background: var(--pea); border-color: #E28867; }
+
+/* Progress bar */
+.bar { height: 10px; border-radius: 5px; background: var(--ln); overflow: hidden; margin-bottom: 12px; }
+.bar i { display: block; height: 100%; background: var(--ac); transition: width 0.3s ease; }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <a class="brand" href="#home">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    <span>معاً ضد التنمر</span>
+  </a>
+  <div class="top-actions">
+    <button class="icon-btn" id="theme-btn" aria-label="تبديل الوضع الليلي">
+      <svg class="i" width="20" height="20" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a class="icon-btn" id="bell" href="#alerts" aria-label="الإشعارات"></a>
+    <a class="sos-badge" href="#help">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      مساعدة
+    </a>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<nav id="nav" aria-label="التنقل الرئيسي"></nav>
+
+<script>
+// Local Storage Helper
+const store = {
+  get(k, d) {
+    try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; }
+    catch(e) { return d; }
+  },
+  set(k, v) {
+    try { localStorage.setItem(k, JSON.stringify(v)); } catch(e) {}
+  }
+};
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// SVG Icons
+const P = {
+  home: "M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10",
+  chat: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
+  heart: "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z",
+  shield: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+  lock: "M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zm-12 0V7a5 5 0 0 1 10 0v4",
+  bell: "M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9 M13.73 21a2 2 0 0 1-3.46 0",
+  book: "M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z",
+  users: "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
+  share: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8 M16 6l-4-4-4 4 M12 2v13",
+  check: "M20 6L9 17l-5-5",
+  info: "M12 16v-4 M12 8h.01 M22 12A10 10 0 1 1 2 12a10 10 0 0 1 20 0z",
+  sparkles: "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+};
+const ico = (n, s=24) => `<svg class="i" width="${s}" height="${s}" viewBox="0 0 24 24" aria-hidden="true"><path d="${P[n] || P.info}"/></svg>`;
+
+// Interactive Illustration
+const art = () => `<svg width="260" height="180" viewBox="0 0 300 210" role="img" aria-label="طلاب يقفون معاً في مظهر داعم وآمن">
+  <ellipse cx="150" cy="190" rx="130" ry="12" fill="var(--sage)"/>
+  <path d="M40 90 A110 65 0 0 1 260 90 Q220 78 190 90 Q150 78 110 90 Z" fill="var(--lav)"/>
+  <circle cx="100" cy="115" r="15" fill="#D49B73"/>
+  <rect x="85" y="132" width="30" height="46" rx="14" fill="#6B9E82"/>
+  <circle cx="150" cy="105" r="16" fill="#F1C29E"/>
+  <rect x="133" y="123" width="34" height="52" rx="16" fill="#8878B3"/>
+  <circle cx="200" cy="115" r="15" fill="#8C5C38"/>
+  <rect x="185" y="132" width="30" height="46" rx="14" fill="#6D99B5"/>
+  <path d="M115 145 L133 145 M167 145 L185 145" stroke="#F1C29E" stroke-width="7" stroke-linecap="round"/>
+</svg>`;
+
+// State
+const S = {
+  tab: 0,
+  tt: 0,
+  q: 0,
+  score: 0,
+  pick: null,
+  breath: null,
+  breathStage: 0,
+  detectorStep: 0,
+  detectorScore: 0,
+  selectedMood: null,
+  activeReportTab: 'new',
+  trackedCase: null
+};
+
+// Data: Tips
+const DEFAULT_TIPS = [
+  "كلمة طيبة واحدة قد تضيء يوماً كاملاً لزميلك المُنكسر.",
+  "الإبلاغ عن التنمر شجاعة ومسؤولية لحماية غيرك، وليس وشاية أبداً.",
+  "ما يحدث لك ليس خطأك ولا عيباً فيك، أنت تستحق الاحترام دائماً.",
+  "إذا رأيت شخصاً يجلس وحده في الفسحة، اقترب منه وابتسم.",
+  "تذكّر: المتنمر غالباً يعكس ضعفه وألمه الداخلي، فلا تدع كلماته تهز ثقتك.",
+  "قبل أن ترسل أي تعليق في جروب الصف، فكّر: هل يسرك أن يقال لك؟"
+];
+
+const CATEGORIZED_TIPS = {
+  "للطالب": [
+    "التنمر ليس ذنبك، ولا تستحق المعاملة القاسية مهما كانت المبررات.",
+    "لا تتردد في طلب المساعدة فوراً؛ إخبار شخص بالغ تثق به يوقف الأذى.",
+    "تدرّب على النظر في عيني من يضايقك وقول كلمة واحدة بحزم: «توقف».",
+    "احتفظ بيوميات أو ملاحظات بتاريخ الموقف وتفاصيله؛ فالتوثيق يفيد في حل المشكلة.",
+    "أحِط نفسك بأصدقاء حقيقيين يشعرونك بالأمان والتقدير."
+  ],
+  "للشاهد الداعم": [
+    "صمتك قد يفهمه المتنمر تشجيعاً.. قف بجانب زميلك بكلمة حق.",
+    "لا تضحك على النكات المؤذية؛ الضحك وقود للمتنمر لإكمال الإساءة.",
+    "بعد الموقف، اذهب إلى زميلك وقل له: «ما حدث غير صحيح وأنا معك».",
+    "إذا خشيت التدخل وحدك، اطلب مساعدة المعلم أو الأخصائي الاجتماعي فوراً.",
+    "كن الصديق الذي كان زميلك يتمنى وجوده في تلك اللحظة الصعبة."
+  ],
+  "في الفضاء الرقمي": [
+    "لا ترد على الرسائل الاستفزازية؛ التجاهل والحظر ينهيان 80% من الإساءات.",
+    "التقط لقطة شاشة (Screenshot) فوراً قبل حذف أو الإبلاغ عن أي محتوى مسيء كدليل.",
+    "اجعل حساباتك خاصة، ولا تشارك كلمات السر أو موقعك حتى مع أقرب الزملاء.",
+    "لا تشارك صوراً أو مقاطع لأي زميل بدون إذنه المسبق حتى لو كان مازحاً.",
+    "تذكر أن لكل منصة زراً للإبلاغ عن الحسابات المسيئة."
+  ],
+  "لولي الأمر والمعلم": [
+    "استمع للطفل بكل هدوء دون إلقاء اللوم عليه أو التقليل من مشاعره.",
+    "لاحظ علامات التغير: فقدان الشهية، كره الذهاب للمدرسة، تراجع الدرجات المفاجئ.",
+    "علّم الأبناء أن الحزم وطلب المساندة ليس ضعفاً بل نضج.",
+    "تواصل مع إدارة المدرسة بشكل مبكر قبل تفاقم الموقف.",
+    "كن قدوة في البيت والمدرسة في التسامح والاحترام وعدم السخرية من الآخرين."
+  ]
+};
+
+// Quiz Data
+const QZ = [
+  {
+    q: "زميل يسخر من مظهر زميل آخر أمام طلاب الصف ويضحكون.",
+    o: [
+      "أضحك معهم حتى لا أصبح هدفاً للسخرية بعده",
+      "أقول بحزم وهدوء: «هذا ليس مضحكاً ولا لطيفاً»، وأقف بجانب زميلي",
+      "أتجاهل تماماً وأمشي كأني لم أرَ شيئاً"
+    ],
+    b: 1,
+    f: "رائع! وقوفك بجانب زميلك وقول كلمة حق يكسر شوكة المتنمر ويحمي المعتدى عليه."
+  },
+  {
+    q: "وصلتك رسالة تهديد أو شتائم في مجموعة دردشة واتساب.",
+    o: [
+      "أرد عليه بنفس الأسلوب وأشتمه في المجموعة",
+      "أحذف الرسالة فوراً وأكتم الموضوع خجلاً",
+      "أحتفظ بلقطة شاشة (دليل) ثم أحظره وأخبر شخصاً بالغاً أثق به"
+    ],
+    b: 2,
+    f: "أحسنت! لقطة الشاشة توثق حقك، واللجوء للكبار يحميك دون الدخول في شجار مدمر."
+  },
+  {
+    q: "شخص يدفعك في ممر المدرسة ويكرر ذلك كل يوم.",
+    o: [
+      "أرد بالضرب وأبدأ شجاراً في الممر",
+      "أبتعد فوراً وأتوجه للأخصائي الاجتماعي أو المعلم في نفس اليوم",
+      "أبقى صامتاً وأتغيب عن المدرسة لأتفاداه"
+    ],
+    b: 1,
+    f: "ممتاز! الابتعاد والإبلاغ حماية لنفسك، فالشجار قد يوقعك في العقاب والغياب ليس حلاً."
+  },
+  {
+    q: "تلاحظ زميلاً جديداً يجلس وحيداً ويبدو عليه الانكسار.",
+    o: [
+      "أقترب منه وألقي التحية وأدعوه لمشاركتنا وجبة الإفطار أو الحديث",
+      "أتركه، فربما هو يحب العزلة",
+      "أتحدث عنه بالسوء مع بقية الطلاب"
+    ],
+    b: 0,
+    f: "جميل جداً! خطوة بسيطة منك تصنع فارقاً هائلاً وتبني جسور الأمان."
+  }
+];
+
+// Bullying Detector Questions
+const DETECTOR_QUESTIONS = [
+  {
+    q: "هل التصرف المزعج حدث أكثر من مرة ويتكرر بشكل دوري؟",
+    desc: "التنمر بطبيعته سلوك متكرر وليس حادثاً عارضاً لمرة واحدة."
+  },
+  {
+    q: "هل تشعر بوجود فرق في القوة (الجسدية، الاجتماعية، أو الشعبية) يصعّب عليك إيقافه بمفردك؟",
+    desc: "التنمر يعتمد على اختلال موازين القوة بين الطرفين."
+  },
+  {
+    q: "هل تشعر بأن الطرف الآخر يتعمد إيذاء مشاعرك أو إهانتك أمام الآخرين؟",
+    desc: "التعمد وإيقاع الأذى النفسي أو الجسدي من علامات التنمر الأساسية."
+  }
+];
+
+// Sanad Bot Knowledge
+const SANAD_RESPONSES = {
+  greetings: "أهلاً بك يا صديقي، أنا هنا لأسمعك بكل هدوء. مساحتنا آمنة وسرية تماماً. ما الذي يضايقك أو تشعر به اليوم؟",
+  verbal: "يؤلمني جداً ما مررت به من كلمات جارحة. تذكر دائماً أن الكلمات المسيئة تعكس نقص من يقولها ولا تحدد قيمتك الحقيقية أبداً. أول خطوة: لا تصدق ما قاله، وأخبر معلماً أو أخصائياً تثق به في المدرسة ليضع حداً له.",
+  physical: "سلامتك وأمانك هما الأهم فوق كل شيء! في حالات الأذى الجسدي، لا تدخل في عراك فردي، بل ابتعد فوراً إلى مكان فيه كبار ومعلمون، وأبلغ إدارة المدرسة والأهل في نفس اليوم. هل أنت في مكان آمن الآن؟",
+  cyber: "الإساءات الرقمية مزعجة جداً لأنها تقتحم مساحتك الخاصة. التصرف الصحيح الذهبي: 1) لا ترد على الإساءة، 2) التقط لقطة شاشة للشات أو الحساب كدليل، 3) قم بحظر الحساب فوراً وأخبر والديك. نحن معك.",
+  sad: "أشعر بك، ومن حقك تماماً أن تشعر بالحزن أو الإحباط بعد ما حدث. تذكّر أنك لست وحدك، ومجرد حديثك معي الآن خطوة شجاعة كبيرة. خذ نفساً عميقاً، هل تريد أن تخبرني بموقف معين حدث اليوم؟",
+  bystander: "أحييك من قلبي على ضميرك الحي ورغبتك في نصرة زميلك! يمكنك التحدث معه بعد الموقف لتشعره بأنه ليس وحده، أو إبلاغ المرشد الطلابي مع الحفاظ على سرية اسمك.",
+  vent: "أنا كلي آذان صاغية. افرغ ما في صدرك، اكتب كل ما تشعر به دون تردد أو قيود.. هنا لا يوجد من يلومك.",
+  default: "سمعتك وفهمت قصدك جيداً. أعلم أن الأمر ليس سهلاً، لكن تذكر أن لديك حقوقاً كاملة في أن تعيش وتدرس بأمان واحترام. أنصحك بأخذ نفس هادئ الآن، وإذا كان الأمر يتطلب تدخلاً عاجلاً، استخدم قسم «مساعدة» للتواصل مع المختصين."
+};
+
+// UI Views
+const V = {
+  welcome: () => `
+    <section style="text-align:center;padding:20px 0 10px">
+      ${art()}
+      <h1 style="margin-top:16px">معاً ضد التنمر</h1>
+      <p class="mu" style="font-size:17px;line-height:1.7;margin:0 auto 24px;max-width:380px">
+        مساحة دافئة وآمنة نستمع فيها لمشاعرك، ونرشدك للدفاع عن نفسك، ونقدم لك الدعم بكل سرية واحترام.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a class="btn" href="#home">
+          <span>ابدأ الآن</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn s" href="#sanad">
+          ${ico('chat', 20)}
+          <span>تحدّث مع «سند» (رفيق الاستماع)</span>
+        </a>
+      </div>
+    </section>
+  `,
+
+  home: () => {
+    const allTips = [...DEFAULT_TIPS, ...(store.get('custom_tips', []))];
+    const tipIndex = (new Date().getDate() + new Date().getMonth() * 30) % allTips.length;
+    const dailyTip = allTips[tipIndex] || DEFAULT_TIPS[0];
+    const mood = store.get('today_mood', null);
+
+    return `
+      <!-- PWA Install Prompt Banner -->
+      <div id="install-banner">
+        <div>
+          <b>ثبّت التطبيق على هاتفك 📲</b>
+          <div style="font-size:13px;opacity:0.9">للوصول السريع وتلقي النصائح بدون إنترنت</div>
+        </div>
+        <button class="btn s sm" id="pwa-install-btn">تثبيت</button>
+      </div>
+
+      <!-- Mood Check-in -->
+      <div class="c" style="background:var(--cd)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <b>كيف تشعر الآن؟</b>
+          <small class="mu">اختر شعورك لنساعدك</small>
+        </div>
+        <div class="mood-grid">
+          <button class="mood-btn ${mood=='happy'?'selected':''}" data-m="happy"><span class="mood-emoji">😊</span>مرتاح</button>
+          <button class="mood-btn ${mood=='anxious'?'selected':''}" data-m="anxious"><span class="mood-emoji">😟</span>قلق</button>
+          <button class="mood-btn ${mood=='sad'?'selected':''}" data-m="sad"><span class="mood-emoji">😢</span>حزين</button>
+          <button class="mood-btn ${mood=='angry'?'selected':''}" data-m="angry"><span class="mood-emoji">😡</span>غاضب</button>
+          <button class="mood-btn ${mood=='neutral'?'selected':''}" data-m="neutral"><span class="mood-emoji">😐</span>عادي</button>
+        </div>
+        <div id="mood-response" style="margin-top:10px;font-size:14px;color:var(--hd);font-weight:600;display:${mood?'block':'none'}">
+          ${getMoodFeedback(mood)}
+        </div>
+      </div>
+
+      <!-- Quick Cards Grid -->
+      <div class="g">
+        <a class="t w" href="#sanad" style="background:var(--lav)">
+          <span style="display:flex;justify-content:space-between;align-items:center">
+            <span class="ib">${ico('chat')}</span>
+            <span style="background:var(--cd);padding:4px 10px;border-radius:12px;font-size:12px;font-weight:800;color:var(--hd)">متاح دائماً 💬</span>
+          </span>
+          <span>
+            <b>رفيق الاستماع «سند»</b>
+            <small>فضفض وتحدّث بحرية.. نحن نصغي إليك دون أحكام</small>
+          </span>
+        </a>
+
+        ${card('report', 'pea', 'lock', 'الإبلاغ والمتابعة', 'بسرية تامة وبرمز كود')}
+        ${card('community', 'cr', 'users', 'فضفضة آمنة', 'جدار المشاعر والتشجيع')}
+        ${card('learn', 'sky', 'shield', 'هل هذا تنمر؟', 'أداة الفحص والتدريب')}
+        ${card('help', 'sage', 'heart', 'حقيبة التهدئة', 'تمارين تنفس ومساعدة SOS')}
+      </div>
+
+      <!-- Daily Tip of the Day -->
+      <div class="c" style="background:var(--sage)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <b>💡 فكرة ونبضة اليوم</b>
+          <button class="btn sm s" style="background:var(--cd)" onclick="shareTip('${esc(dailyTip)}')">
+            ${ico('share', 16)} مشاركة
+          </button>
+        </div>
+        <p style="font-size:16px;margin:0 0 10px;font-weight:500;line-height:1.6">${dailyTip}</p>
+        <div style="display:flex;gap:8px">
+          <button class="btn sm" style="background:var(--hd);color:#fff" onclick="copyTip('${esc(dailyTip)}')">نسخ النص</button>
+          <a class="btn sm s" href="#tips">المزيد من النصائح</a>
+        </div>
+      </div>
+    `;
+  },
+
+  sanad: () => {
+    const history = store.get('sanad_chat', [
+      { sender: 'bot', text: SANAD_RESPONSES.greetings, time: Date.now() }
+    ]);
+
+    return `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div>
+          <h2>رفيق الاستماع «سند»</h2>
+          <p class="mu" style="font-size:13px;margin:0">مساحة تفريغ ودعم نفسي آمنة وسرية 100%</p>
+        </div>
+        <button class="btn sm p" onclick="clearSanadChat()">مسح المحادثة 🗑️</button>
+      </div>
+
+      <div class="c chat-container">
+        <div class="chat-history" id="chat-hist">
+          ${history.map(m => `
+            <div class="chat-bubble ${m.sender}">
+              ${esc(m.text)}
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="chat-quick-chips">
+          <button class="chip" onclick="sendSanadPrompt('شخص يسخر مني ويضايقني بكلام جارح')">🗣️ كلام جارح وسخرية</button>
+          <button class="chip" onclick="sendSanadPrompt('شخص يعتدي علي بالضرب أو يدفعني')">✋ أذى جسدي وتهديد</button>
+          <button class="chip" onclick="sendSanadPrompt('وصلتني رسائل مسيئة في جروب أو شات')">📱 تنمر إلكتروني</button>
+          <button class="chip" onclick="sendSanadPrompt('أشعر بحزن شديد ووحدة وأحتاج لمن يفهمني')">😢 أشعر بالحزن والوحدة</button>
+          <button class="chip" onclick="sendSanadPrompt('رأيت زميلاً يتعرض للتنمر وأريد مساعدته')">🤝 مساعدة زميلي</button>
+        </div>
+
+        <form class="chat-input-bar" id="sanad-form">
+          <input type="text" id="sanad-input" placeholder="اكتب ما في قلبك هنا..." autocomplete="off">
+          <button class="btn sm" type="submit" style="width:50px;min-height:46px;border-radius:23px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+    `;
+  },
+
+  community: () => {
+    const defaultNotes = [
+      { id: 'c1', text: "تذكر دائماً أن قيمتك بداخلك وليست في آراء الناس.", tag: 'kind', hugs: 14, time: Date.now() - 3600000 },
+      { id: 'c2', text: "اليوم مررت بموقف صعب في الباص لكنني تماسكت وطلبت مساعدة الأخصائي.", tag: 'vent', hugs: 9, time: Date.now() - 7200000 },
+      { id: 'c3', text: "أنت لست وحدك، كلنا هنا ندعمك ونقف معك.", tag: 'kind', hugs: 22, time: Date.now() - 14400000 }
+    ];
+    const notes = store.get('community_notes', defaultNotes);
+
+    return `
+      <h2>فضفضة آمنة ومجتمعنا</h2>
+      <p class="mu">شارك مشاعرك بحرية أو اترك كلمة طيبة تشجع بها زملائك. كل المشاركات مجهولة.</p>
+
+      <div class="c" style="background:var(--cd)">
+        <b>اكتب في جدار المشاعر</b>
+        <form id="comm-form" style="margin-top:10px">
+          <div style="display:flex;gap:10px;margin-bottom:8px">
+            <label class="ck"><input type="radio" name="ctag" value="kind" checked> كلمة تشجيع ودعم</label>
+            <label class="ck"><input type="radio" name="ctag" value="vent"> فضفضة عما يضايقني</label>
+          </div>
+          <textarea id="comm-text" rows="3" placeholder="اكتب رسالتك بلطف واحترام..." maxlength="200" required></textarea>
+          <button class="btn sm" style="margin-top:10px" type="submit">نشر في الجدار</button>
+        </form>
+      </div>
+
+      <h3>أحدث الرسائل الداعمة</h3>
+      <div id="notes-list">
+        ${notes.map(n => `
+          <div class="c" style="margin-bottom:10px">
+            <span class="card-tag ${n.tag=='kind'?'tag-kind':'tag-vent'}">${n.tag=='kind'?'✨ كلمة طيبة':'🕊️ فضفضة'}</span>
+            <p style="font-size:15px;margin:4px 0 10px;font-weight:500">${esc(n.text)}</p>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <small class="mu">${formatTimeAgo(n.time)}</small>
+              <button class="btn sm s" onclick="addHug('${n.id}')">
+                ❤️ احتضان ودعم (${n.hugs || 0})
+              </button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  },
+
+  report: () => {
+    const isNew = S.activeReportTab === 'new';
+    const c = S.trackedCase;
+
+    return `
+      <h2>الإبلاغ الآمن ومتابعة الحالة</h2>
+      <p class="mu">صوتك مسموع، وأمانك أولويتنا. يمكنك تقديم بلاغ سري أو متابعة بلاغ سابق.</p>
+
+      <div class="tabs">
+        <button data-rt="new" aria-pressed="${isNew}">تقديم بلاغ جديد</button>
+        <button data-rt="track" aria-pressed="${!isNew}">متابعة بلاغ سابق</button>
+      </div>
+
+      ${isNew ? `
+        <div class="c">
+          <form id="report-form">
+            <label for="rep-type">نوع الإساءة أو التنمر</label>
+            <select id="rep-type">
+              <option>تنمر لفظي (سخرية، شتائم، تهديد، ألقاب مؤذية)</option>
+              <option>تنمر جسدي (دفع، ضرب، إتلاف للأغراض والمقتنيات)</option>
+              <option>تنمر إلكتروني (رسائل شات، نشر صور، حسابات وهمية)</option>
+              <option>نبذ واستبعاد اجتماعي (منع من الجلوس أو التحدث)</option>
+              <option>أخرى</option>
+            </select>
+
+            <label for="rep-place">أين حدث الموقف؟</label>
+            <input type="text" id="rep-place" placeholder="مثال: ساحة المدرسة، الصف، باص المدرسة، قروب واتساب..." required>
+
+            <label for="rep-desc">صف ما حدث بإيجاز</label>
+            <textarea id="rep-desc" rows="4" placeholder="اكتب ما حدث معك أو مع زميلك لنستطيع المساعدة..." required></textarea>
+
+            <label class="ck" style="margin:14px 0">
+              <input type="checkbox" id="rep-anon" checked onchange="$('#rep-name-wrap').style.display=this.checked?'none':'block'">
+              أرغب بإبقاء هويتي سرية تماماً (موصى به)
+            </label>
+
+            <div id="rep-name-wrap" style="display:none;margin-bottom:12px">
+              <label for="rep-name">اسمك ورقم الصف (اختياري)</label>
+              <input type="text" id="rep-name" placeholder="مثال: أحمد - ثاني متوسط">
+            </div>
+
+            <button class="btn" type="submit" style="margin-top:12px">إرسال البلاغ بسرية</button>
+          </form>
+        </div>
+      ` : `
+        <div class="c">
+          <b>أدخل رمز متابعة البلاغ</b>
+          <p class="mu" style="font-size:14px">أدخل الرمز الذي حصلت عليه عند تقديم البلاغ (مثل TB-123456).</p>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <input type="text" id="track-input" placeholder="TB-XXXXXX" style="text-align:center;font-weight:700;letter-spacing:1px">
+            <button class="btn sm" style="width:90px" onclick="trackReportCode()">استعلام</button>
+          </div>
+        </div>
+
+        <div id="track-result">
+          ${c ? `
+            <div class="c" style="background:var(--sage)">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <b>كود البلاغ: ${esc(c.code)}</b>
+                <span style="background:var(--ac);color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:700">
+                  ${esc(c.status || 'تمت المراجعة')}
+                </span>
+              </div>
+              <p style="margin:10px 0 4px;font-size:14px"><b>النوع:</b> ${esc(c.type)} | <b>المكان:</b> ${esc(c.place)}</p>
+              <div style="background:var(--cd);padding:12px;border-radius:14px;margin-top:10px">
+                <b style="color:var(--hd)">رسالة الأخصائي الاجتماعي:</b>
+                <p style="margin:4px 0 0;font-size:14px;color:var(--tx)">${esc(c.counselor_reply || 'شكراً لشجاعتك في الإبلاغ. تمت إحاطة الإدارة بالموقف لاتخاذ الإجراء الحازم والسري لحمايتك. أنت في أمان تام الآن.')}</p>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `}
+    `;
+  },
+
+  learn: () => {
+    return `
+      <h2>تعلّم واحمِ نفسك</h2>
+      <p class="mu">فهم التنمر وكيفية التصرف بحكمة هو أول خطوة لحماية نفسك وزملائك.</p>
+
+      <div class="tabs">
+        <button data-lt="detector" aria-pressed="${S.tab==0}">هل هذا تنمر؟ 🔍</button>
+        <button data-lt="types" aria-pressed="${S.tab==1}">أنواع التنمر</button>
+        <button data-lt="quiz" aria-pressed="${S.tab==2}">اختبار المواقف</button>
+      </div>
+
+      ${S.tab == 0 ? renderDetector() : S.tab == 1 ? renderLearnTypes() : renderQuiz()}
+    `;
+  },
+
+  tips: () => {
+    const cats = Object.keys(CATEGORIZED_TIPS);
+    const activeCat = cats[S.tt] || cats[0];
+    const tipsList = CATEGORIZED_TIPS[activeCat];
+
+    return `
+      <h2>نصائح وتنبيهات</h2>
+      <p class="mu">إرشادات وخطوات عملية مصممة لكل فرد في المجتمع المدرسي والأسري.</p>
+
+      <!-- Category Filter Pills -->
+      <div class="tabs" style="flex-wrap:wrap">
+        ${cats.map((c, i) => `
+          <button data-cat="${i}" aria-pressed="${i==S.tt}">${c}</button>
+        `).join('')}
+      </div>
+
+      <!-- Tips Cards List -->
+      <div>
+        ${tipsList.map(t => `
+          <div class="c" style="background:var(--cd);margin-bottom:12px">
+            <p style="font-size:15px;margin:0 0 12px;font-weight:500;line-height:1.6">${t}</p>
+            <div style="display:flex;justify-content:flex-end;gap:8px">
+              <button class="btn sm s" onclick="shareTip('${esc(t)}')">${ico('share', 16)} واتساب</button>
+              <button class="btn sm s" onclick="copyTip('${esc(t)}')">نسخ 📋</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <!-- Add Custom Tip (For teachers/mentors) -->
+      <div class="c" style="background:var(--lav);margin-top:20px">
+        <b>💡 إضافة نصيحة جديدة للتطبيق</b>
+        <p class="mu" style="font-size:13px;margin:4px 0 10px">هل لديك فكرة أو نصيحة تود إضافتها ليراها الجميع؟</p>
+        <form id="add-tip-form">
+          <input type="text" id="new-tip-text" placeholder="اكتب النصيحة هنا..." required>
+          <button class="btn sm" style="margin-top:8px" type="submit">إضافة النصيحة</button>
+        </form>
+      </div>
+
+      <!-- Notification Controls -->
+      <div class="c" style="margin-top:14px">
+        <b>🔔 ضبط الإشعارات والتنبيهات</b>
+        <div style="margin-top:10px;display:flex;flex-direction:column;gap:10px">
+          <button class="btn s" onclick="triggerImmediateTip()">أرسل لي نصيحة وتذكيراً الآن 🔔</button>
+          <label class="ck">
+            <input type="checkbox" id="notif-toggle" ${store.get('bn', 0) ? 'checked' : ''} onchange="toggleBrowserNotifs(this.checked)">
+            تفعيل إشعارات المتصفح اليومية
+          </label>
+        </div>
+      </div>
+    `;
+  },
+
+  help: () => {
+    return `
+      <h2>حقيبة التهدئة والمساعدة الفورية (SOS)</h2>
+      <p class="mu">إذا كنت تشعر بالتوتر أو الخوف الآن، نحن بجانبك.. توقف قليلاً واستعد هدوءك.</p>
+
+      <!-- 4-7-8 Calming Breathing -->
+      <div class="c" style="text-align:center">
+        <b>تمرين التنفس المهدئ (4-7-8)</b>
+        <p class="mu" style="font-size:14px;margin:4px 0 12px">شهيق لـ 4 ثوانٍ، احبس لـ 7 ثوانٍ، زفير هادئ لـ 8 ثوانٍ</p>
+        <div id="bc" class="${S.breath ? 'inhale' : ''}">
+          <span id="bc-text">${S.breath ? 'شهيق...' : 'جاهز'}</span>
+        </div>
+        <button class="btn s" onclick="toggleBreathing()">${S.breath ? 'إيقاف التمرين' : 'ابدأ تمرين التنفس'}</button>
+      </div>
+
+      <!-- 5-4-3-2-1 Grounding Technique -->
+      <div class="c" style="background:var(--sky)">
+        <b>تقنية الحواس الخمس للتهدئة السريعة (5-4-3-2-1)</b>
+        <p style="font-size:14px;margin:6px 0 10px">عندما تشعر بالهلع أو الصدمة، ركّز في محيطك واذكر:</p>
+        <ol style="margin:0;padding-right:20px;font-size:14px;line-height:1.8">
+          <li><b>5</b> أشياء تراها بعينيك في الغرفة الآن.</li>
+          <li><b>4</b> أشياء تستطيع لمسها بيدك (ملابسك، الطاولة...).</li>
+          <li><b>3</b> أصوات تسمعها الآن (مكيف، سيارة، صوت هواء).</li>
+          <li><b>2</b> رائحتين تشمهما حولك.</li>
+          <li><b>1</b> شيء تتذوقه أو نفس عميق تشعر به.</li>
+        </ol>
+      </div>
+
+      <!-- Direct Contacts -->
+      <div class="c" style="background:var(--pea)">
+        <b>أرقام المساعدة والحماية المباشرة</b>
+        <p style="font-size:14px;margin:6px 0 12px">إذا كنت في خطر مباشر أو تحتاج للحديث مع مختص معتمد:</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a class="btn" style="background:#25D366;color:#fff" href="tel:16000">
+            📞 خط نجدة الطفل المجاني (16000)
+          </a>
+          <a class="btn s" href="tel:116111">
+            📞 خط مساندة الطفل (116111)
+          </a>
+        </div>
+      </div>
+    `;
+  },
+
+  alerts: () => {
+    const list = store.get('inbox', []);
+    return `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h2>صندوق الإشعارات</h2>
+        <button class="btn sm s" onclick="markAllNotificationsRead()">تعليم الكل كمقروء</button>
+      </div>
+      <p class="mu">سجل التنبيهات والنصائح اليومية التي وصلت إليك.</p>
+
+      <div id="inbox-list">
+        ${list.length ? list.map(m => `
+          <div class="c" style="margin-bottom:8px;${m.read ? '' : 'border-right:5px solid var(--ac);background:var(--ac-lt)'}">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <b>${esc(m.title)}</b>
+              <small class="mu">${formatTimeAgo(m.time)}</small>
+            </div>
+            <p style="margin:4px 0 0;font-size:14px">${esc(m.body)}</p>
+          </div>
+        `).join('') : `
+          <div class="c" style="text-align:center;padding:30px">
+            <span style="font-size:40px">📭</span>
+            <p class="mu" style="margin-top:10px">لا توجد إشعارات جديدة حتى الآن.</p>
+            <button class="btn sm s" onclick="triggerImmediateTip()">أرسل لي نصيحة الآن</button>
+          </div>
+        `}
+      </div>
+    `;
+  }
+};
+
+// Sub-renders
+function renderDetector() {
+  const step = S.detectorStep;
+  if (step >= DETECTOR_QUESTIONS.length) {
+    let resultTitle = "", resultDesc = "", resultColor = "";
+    if (S.detectorScore === 3) {
+      resultTitle = "⚠️ هذا تنمر صريح ومؤكد";
+      resultDesc = "الموقف ينطوي على تكرار، تعمد، واختلال في موازين القوة. ننصحك بعدم السكوت فوراً والإبلاغ عبر التطبيق أو الحديث مع الأخصائي الاجتماعي.";
+      resultColor = "var(--pea)";
+    } else if (S.detectorScore >= 1) {
+      resultTitle = "⚠️ تصرف مزعج / خلاف يحتاج وضع حدود";
+      resultDesc = "قد لا يكون تنمراً كاملاً بعد، ولكنه سلوك غير لائق. قف بحزم وقل: «توقف، هذا يضايقني ولا أسمح به»، واحتفظ بتوثيق إذا تكرر الأمر.";
+      resultColor = "var(--cr)";
+    } else {
+      resultTitle = "🟢 موقف عارض أو سوء تفاهم";
+      resultDesc = "يبدو أن الموقف لم يتكرر أو لم يكن مقصوداً بالأذى. الحوار الودي والتعبير عن الانزعاج قد يحل الموضوع بسهولة.";
+      resultColor = "var(--sage)";
+    }
+    return `
+      <div class="c" style="background:${resultColor};text-align:center">
+        <h3>${resultTitle}</h3>
+        <p style="margin:8px 0 16px">${resultDesc}</p>
+        <div style="display:flex;gap:8px">
+          <a class="btn sm" href="#report">تقديم بلاغ سري</a>
+          <button class="btn sm s" onclick="resetDetector()">إعادة الفحص</button>
+        </div>
+      </div>
+    `;
+  }
+  const q = DETECTOR_QUESTIONS[step];
+  return `
+    <div class="c">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+        <b>سؤال ${step + 1} من ${DETECTOR_QUESTIONS.length}</b>
+      </div>
+      <div class="bar"><i style="width:${(step / DETECTOR_QUESTIONS.length)*100}%"></i></div>
+      <h3 style="margin-top:10px">${q.q}</h3>
+      <p class="mu" style="font-size:14px">${q.desc}</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px">
+        <button class="btn s" onclick="answerDetector(true)">نعم، بالتأكيد</button>
+        <button class="btn s" onclick="answerDetector(false)">لا / لست متأكداً</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderLearnTypes() {
+  const types = [
+    { n: "تنمر لفظي", d: "سخرية من الشكل أو الاسم أو الصوت، شتائم متكررة، وتهديد.", act: "قل بحزم: «توقف»، ابتعد عن المتنمر، ولا تصدق كلماته." },
+    { n: "تنمر جسدي", d: "دفع، ضرب، إتلاف للأدوات أو سلب للأشياء بالتهديد.", act: "لا تواجه وحدك، اتجه فوراً لمكان فيه معلمون واطلب التدخل." },
+    { n: "تنمر إلكتروني", d: "رسائل مسيئة، نشر صور، أو استبعاد من مجموعات التواصل.", act: "لا ترد، احتفظ بلقطة شاشة، احظر الحساب، وأخبر الأهل." },
+    { n: "تنمر اجتماعي", d: "نشر شائعات كاذبة ونبذ متعمد لمنع الآخرين من مصادقتك.", act: "ابحث عن أصدقاء حقيقيين يقدّرونك، وتحدث مع الإخصائي." }
+  ];
+  return types.map(t => `
+    <div class="c" style="margin-bottom:10px">
+      <b style="font-size:17px;color:var(--hd)">${t.n}</b>
+      <p style="margin:4px 0 8px;font-size:14px">${t.d}</p>
+      <div style="background:var(--sage);padding:8px 12px;border-radius:12px;font-size:13px">
+        <b>كيف تتصرف؟</b> ${t.act}
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderQuiz() {
+  if (S.q >= QZ.length) {
+    return `
+      <div class="c" style="text-align:center">
+        <h3>نتيجتك في التدريب</h3>
+        <div style="font-size:38px;font-weight:800;color:var(--hd);margin:8px 0">${S.score} / ${QZ.length}</div>
+        <p class="mu">${S.score >= 3 ? 'ممتاز! لديك وعي عالٍ بكيفية التصرف بحكمة وشجاعة.' : 'أحسنت المحاولة! تذكر دائماً أن طلب المساعدة ومساندة الزميل هما الخيار الأصح.'}</p>
+        <button class="btn s" onclick="resetQuiz()">أعد الاختبار</button>
+      </div>
+    `;
+  }
+  const x = QZ[S.q];
+  const answered = S.pick !== null;
+  return `
+    <div class="c">
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <b>موقف ${S.q + 1} من ${QZ.length}</b>
+      </div>
+      <div class="bar"><i style="width:${(S.q / QZ.length)*100}%"></i></div>
+      <b style="font-size:16px;display:block;margin:10px 0">${x.q}</b>
+      ${x.o.map((opt, i) => `
+        <button class="opt ${answered ? (i === x.b ? 'ok' : (i === S.pick ? 'no' : '')) : ''}"
+          onclick="pickQuizOption(${i})" ${answered ? 'disabled' : ''}>
+          ${opt}
+        </button>
+      `).join('')}
+      ${answered ? `
+        <div class="c" style="background:var(--sky);margin:12px 0 6px">
+          <p style="margin:0;font-size:14px">${x.f}</p>
+        </div>
+        <button class="btn" onclick="nextQuizQuestion()">${S.q + 1 < QZ.length ? 'الموقف التالي' : 'عرض النتيجة'}</button>
+      ` : ''}
+    </div>
+  `;
+}
+
+function card(h, c, i, t, s, x='') {
+  return `
+    <a class="t ${x}" href="#${h}" style="background:var(--${c})">
+      <span class="ib">${ico(i)}</span>
+      <span>
+        <b>${t}</b>
+        <small>${s}</small>
+      </span>
+    </a>
+  `;
+}
+
+// Router & App State
+function render(preserveScroll) {
+  const rawHash = (location.hash || '#welcome').slice(1);
+  const route = V[rawHash] ? rawHash : 'welcome';
+  $('#app').innerHTML = V[route]();
+
+  const isWelcome = route === 'welcome';
+  $('#top').style.display = isWelcome ? 'none' : 'flex';
+  $('#nav').style.display = isWelcome ? 'none' : 'flex';
+
+  const navItems = [
+    ['home', 'home', 'الرئيسية'],
+    ['sanad', 'chat', 'سند'],
+    ['community', 'users', 'فضفضة'],
+    ['report', 'lock', 'بلاغ'],
+    ['learn', 'shield', 'تعلّم'],
+    ['tips', 'bell', 'نصائح']
+  ];
+  $('#nav').innerHTML = navItems.map(item => `
+    <a href="#${item[0]}" ${item[0] === route ? 'aria-current="page"' : ''}>
+      ${ico(item[1], 22)}
+      <span>${item[2]}</span>
+    </a>
+  `).join('');
+
+  if (!preserveScroll) window.scrollTo(0, 0);
+  updateBadge();
+}
+
+window.addEventListener('hashchange', () => render());
+
+// Badge & Notifications
+function updateBadge() {
+  const unread = store.get('inbox', []).filter(m => !m.read).length;
+  const bell = $('#bell');
+  if (bell) {
+    bell.innerHTML = ico('bell', 20) + (unread ? `<span class="bd">${unread}</span>` : '');
+  }
+}
+
+function showToast(title, msg) {
+  const t = $('#toast');
+  t.innerHTML = `
+    <div style="font-size:22px">✨</div>
+    <div>
+      <b style="display:block;font-size:15px">${esc(title)}</b>
+      <div style="font-size:13px;opacity:0.9">${esc(msg)}</div>
+    </div>
+  `;
+  t.className = 'show';
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => { t.className = ''; }, 4500);
+}
+
+function pushNotification(title, body) {
+  const inbox = store.get('inbox', []);
+  inbox.unshift({ title, body, time: Date.now(), read: 0 });
+  store.set('inbox', inbox.slice(0, 30));
+  updateBadge();
+  showToast(title, body);
+
+  if (store.get('bn', 0) && 'Notification' in window && Notification.permission === 'granted') {
+    try {
+      new Notification(title, {
+        body,
+        icon: 'icon-192.png',
+        dir: 'rtl',
+        lang: 'ar'
+      });
+    } catch(e) {}
+  }
+}
+
+// Mood Handler
+function getMoodFeedback(m) {
+  const map = {
+    happy: "يسعدنا أنك بخير! طاقتك الإيجابية معدية، ابتسم لزميلك اليوم وكن له سنداً.",
+    anxious: "نحن بجانبك.. القلق شعور طبيعي يمر، جرب تمرين التنفس في قسم «مساعدة» لتهدأ.",
+    sad: "لست وحدك، مشاعرك مهمة وتستحق التقدير. تفضل بالفضفضة مع «سند» دون خجل.",
+    angry: "الغضب رد فعل طبيعي للأذى، ولكن لا تتسرع بالشجار. تنفس بعمق وتحدث مع المرشد.",
+    neutral: "يومك فرصة جديدة لصنع فارق لطيف.. تصفح نصيحة اليوم!"
+  };
+  return map[m] || "";
+}
+
+document.addEventListener('click', e => {
+  // Mood selection
+  const moodBtn = e.target.closest('[data-m]');
+  if (moodBtn) {
+    const m = moodBtn.dataset.m;
+    store.set('today_mood', m);
+    render(true);
+  }
+
+  // Report tabs
+  const rTab = e.target.closest('[data-rt]');
+  if (rTab) {
+    S.activeReportTab = rTab.dataset.rt;
+    render(true);
+  }
+
+  // Learn tabs
+  const lTab = e.target.closest('[data-lt]');
+  if (lTab) {
+    const t = lTab.dataset.lt;
+    S.tab = t === 'detector' ? 0 : t === 'types' ? 1 : 2;
+    render(true);
+  }
+
+  // Tips category pills
+  const catBtn = e.target.closest('[data-cat]');
+  if (catBtn) {
+    S.tt = +catBtn.dataset.cat;
+    render(true);
+  }
+});
+
+// Sanad Chat Engine
+function sendSanadPrompt(text) {
+  const input = $('#sanad-input');
+  if (input) input.value = text;
+  handleSanadSubmit(text);
+}
+
+function handleSanadSubmit(userText) {
+  if (!userText || !userText.trim()) return;
+  const history = store.get('sanad_chat', []);
+  history.push({ sender: 'user', text: userText, time: Date.now() });
+  store.set('sanad_chat', history);
+  render(true);
+
+  // Bot response matching
+  setTimeout(() => {
+    let reply = SANAD_RESPONSES.default;
+    const txt = userText.toLowerCase();
+    if (txt.includes('لفظي') || txt.includes('كلام') || txt.includes('سخرية') || txt.includes('يسبني') || txt.includes('شتائم')) {
+      reply = SANAD_RESPONSES.verbal;
+    } else if (txt.includes('ضرب') || txt.includes('دفع') || txt.includes('جسدي') || txt.includes('اعتداء')) {
+      reply = SANAD_RESPONSES.physical;
+    } else if (txt.includes('نت') || txt.includes('جروب') || txt.includes('واتساب') || txt.includes('صورة') || txt.includes('رسائل')) {
+      reply = SANAD_RESPONSES.cyber;
+    } else if (txt.includes('حزين') || txt.includes('وحدة') || txt.includes('مخفوق') || txt.includes('ضيق')) {
+      reply = SANAD_RESPONSES.sad;
+    } else if (txt.includes('زميل') || txt.includes('شاهدت') || txt.includes('مساعدة')) {
+      reply = SANAD_RESPONSES.bystander;
+    } else if (txt.includes('فضفضة') || txt.includes('أريد التحدث')) {
+      reply = SANAD_RESPONSES.vent;
+    }
+
+    history.push({ sender: 'bot', text: reply, time: Date.now() });
+    store.set('sanad_chat', history);
+    render(true);
+
+    const histEl = $('#chat-hist');
+    if (histEl) histEl.scrollTop = histEl.scrollHeight;
+  }, 600);
+}
+
+document.addEventListener('submit', e => {
+  if (e.target.id === 'sanad-form') {
+    e.preventDefault();
+    const input = $('#sanad-input');
+    const val = input.value.trim();
+    if (val) {
+      input.value = '';
+      handleSanadSubmit(val);
+    }
+  }
+
+  // Community post submission
+  if (e.target.id === 'comm-form') {
+    e.preventDefault();
+    const text = $('#comm-text').value.trim();
+    const tag = $('input[name="ctag"]:checked')?.value || 'kind';
+    if (text) {
+      const notes = store.get('community_notes', []);
+      notes.unshift({
+        id: 'n_' + Date.now(),
+        text,
+        tag,
+        hugs: 1,
+        time: Date.now()
+      });
+      store.set('community_notes', notes.slice(0, 30));
+      showToast('شكراً لمشاركتك!', 'تمت إضافة رسالتك للجدار بنجاح.');
+      render(true);
+    }
+  }
+
+  // Report submission
+  if (e.target.id === 'report-form') {
+    e.preventDefault();
+    const type = $('#rep-type').value;
+    const place = $('#rep-place').value.trim();
+    const desc = $('#rep-desc').value.trim();
+    const isAnon = $('#rep-anon').checked;
+    const name = isAnon ? 'مجهول' : ($('#rep-name').value.trim() || 'طالب');
+
+    const code = 'TB-' + Math.floor(100000 + Math.random() * 900000);
+    const reports = store.get('reports', []);
+    const newReport = {
+      code,
+      type,
+      place,
+      desc,
+      name,
+      anon: isAnon,
+      time: Date.now(),
+      status: 'قيد المتابعة السرية',
+      counselor_reply: 'أهلاً بك، وصل بلاغك وسنتعامل معه بسرية تامة لضمان سلامتك ووقف أي مضايقات.'
+    };
+    reports.push(newReport);
+    store.set('reports', reports);
+
+    S.trackedCase = newReport;
+    S.activeReportTab = 'track';
+    pushNotification('تم استلام بلاغك بأمان', `احتفظ برمز المتابعة: ${code}`);
+    render(true);
+  }
+
+  // Add custom tip
+  if (e.target.id === 'add-tip-form') {
+    e.preventDefault();
+    const t = $('#new-tip-text').value.trim();
+    if (t) {
+      const tips = store.get('custom_tips', []);
+      tips.push(t);
+      store.set('custom_tips', tips);
+      $('#new-tip-text').value = '';
+      showToast('تمت الإضافة بنجاح', 'أضيفت فكرتك لبنك النصائح.');
+      render(true);
+    }
+  }
+});
+
+// Community Hug Reaction
+function addHug(id) {
+  const notes = store.get('community_notes', []);
+  const note = notes.find(n => n.id === id);
+  if (note) {
+    note.hugs = (note.hugs || 0) + 1;
+    store.set('community_notes', notes);
+    render(true);
+    showToast('شكراً لدعمك ❤️', 'أرسلت احتضاناً وتشجيعاً لزميلك.');
+  }
+}
+
+// Track Report by Code
+function trackReportCode() {
+  const val = ($('#track-input').value || '').trim().toUpperCase();
+  const reports = store.get('reports', []);
+  const found = reports.find(r => r.code === val);
+  if (found) {
+    S.trackedCase = found;
+  } else {
+    S.trackedCase = {
+      code: val || 'TB-DEMO',
+      type: 'بلاغ تجريبي',
+      place: 'المدرسة',
+      status: 'تم الاطلاع والمعالجة',
+      counselor_reply: 'تم اتخاذ الإجراءات التأديبية والتربوية وزميلك في أمان تام.'
+    };
+  }
+  render(true);
+}
+
+// Clear Sanad Chat
+function clearSanadChat() {
+  if (confirm('هل تريد مسح سجل المحادثة والبدء من جديد؟')) {
+    store.set('sanad_chat', [{ sender: 'bot', text: SANAD_RESPONSES.greetings, time: Date.now() }]);
+    render(true);
+  }
+}
+
+// Bullying Detector Logic
+function answerDetector(isYes) {
+  if (isYes) S.detectorScore++;
+  S.detectorStep++;
+  render(true);
+}
+function resetDetector() {
+  S.detectorStep = 0;
+  S.detectorScore = 0;
+  render(true);
+}
+
+// Quiz Logic
+function pickQuizOption(i) {
+  S.pick = i;
+  if (i === QZ[S.q].b) S.score++;
+  render(true);
+}
+function nextQuizQuestion() {
+  S.q++;
+  S.pick = null;
+  render(true);
+}
+function resetQuiz() {
+  S.q = 0;
+  S.score = 0;
+  S.pick = null;
+  render(true);
+}
+
+// Breathing 4-7-8
+let breathInterval = null;
+function toggleBreathing() {
+  if (S.breath) {
+    clearInterval(breathInterval);
+    S.breath = null;
+    render(true);
+  } else {
+    S.breath = true;
+    render(true);
+    runBreathCycle();
+  }
+}
+function runBreathCycle() {
+  const bc = $('#bc');
+  const bct = $('#bc-text');
+  if (!bc) return;
+
+  function step(text, cls, duration, next) {
+    if (!S.breath) return;
+    bc.className = cls;
+    bct.textContent = text;
+    breathInterval = setTimeout(next, duration);
+  }
+
+  function loop() {
+    step('شهيق (4 ثوانٍ)...', 'inhale', 4000, () => {
+      step('احبس النفس (7 ثوانٍ)...', 'hold', 7000, () => {
+        step('زفير هادئ (8 ثوانٍ)...', 'exhale', 8000, loop);
+      });
+    });
+  }
+  loop();
+}
+
+// Sharing & Copying Tips
+function shareTip(text) {
+  const shareText = `💡 نبضة من تطبيق «معاً ضد التنمر»:\n"${text}"\n\nنحن معك ولست وحدك.`;
+  if (navigator.share) {
+    navigator.share({ title: 'معاً ضد التنمر', text: shareText })
+      .catch(() => window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, '_blank'));
+  } else {
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, '_blank');
+  }
+}
+
+function copyTip(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => showToast('تم النسخ بنجاح! 📋', 'يمكنك لصق النص ومشاركته الآن.'));
+  } else {
+    showToast('تم النسخ بنجاح! 📋', text);
+  }
+}
+
+function triggerImmediateTip() {
+  const tips = [...DEFAULT_TIPS, ...(store.get('custom_tips', []))];
+  const r = tips[Math.floor(Math.random() * tips.length)];
+  pushNotification('نصيحة لطيفة لك', r);
+}
+
+function markAllNotificationsRead() {
+  const inbox = store.get('inbox', []);
+  inbox.forEach(m => m.read = 1);
+  store.set('inbox', inbox);
+  updateBadge();
+  render(true);
+}
+
+function toggleBrowserNotifs(enabled) {
+  if (enabled && 'Notification' in window) {
+    Notification.requestPermission().then(p => {
+      if (p === 'granted') {
+        store.set('bn', 1);
+        pushNotification('تم تفعيل التنبيهات!', 'ستصلك نصائح دورية لطيفة ومحفزة.');
+      } else {
+        store.set('bn', 0);
+        showToast('تنبيه', 'تم رفض إذن الإشعارات من المتصفح.');
+      }
+    });
+  } else {
+    store.set('bn', 0);
+  }
+}
+
+// Time Formatting
+function formatTimeAgo(timestamp) {
+  const diffSec = Math.floor((Date.now() - timestamp) / 1000);
+  if (diffSec < 60) return 'الآن';
+  const diffMin = Math.floor(diffSec / 60);
+  if (diffMin < 60) return `منذ ${diffMin} دقيقة`;
+  const diffHour = Math.floor(diffMin / 60);
+  if (diffHour < 24) return `منذ ${diffHour} ساعة`;
+  const diffDay = Math.floor(diffHour / 24);
+  return `منذ ${diffDay} يوم`;
+}
+
+// Theme Switcher
+const themeBtn = $('#theme-btn');
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    store.set('user_theme', next);
+  });
+}
+const savedTheme = store.get('user_theme', null);
+if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+// PWA Install Prompt Handling
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const banner = $('#install-banner');
+  if (banner) banner.classList.add('show');
+});
+
+document.addEventListener('click', e => {
+  if (e.target && e.target.id === 'pwa-install-btn') {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        deferredPrompt = null;
+        const banner = $('#install-banner');
+        if (banner) banner.classList.remove('show');
+      });
+    }
+  }
+});
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => {
+        // SW registered
+      })
+      .catch(err => console.error('SW Error:', err));
+  });
+}
+
+// Initial Notifications
+if (!store.get('inbox', []).length) {
+  store.set('inbox', [
+    { title: 'مرحباً بك في معاً ضد التنمر', body: 'مكانك الآمن للتعبير والمساندة وحماية حقوقك.', time: Date.now(), read: 0 },
+    { title: 'نبضة اليوم', body: 'تذكر أن قيمتك لا يحددها رأي أحد، كن فخوراً بنفسك.', time: Date.now() - 3600000, read: 1 }
+  ]);
+}
+
+// Periodic In-App Encouragement
+setInterval(() => {
+  const tips = [...DEFAULT_TIPS, ...(store.get('custom_tips', []))];
+  const r = tips[Math.floor(Math.random() * tips.length)];
+  pushNotification('تذكير لطيف 🕊️', r);
+}, 300000); // Every 5 minutes
+
+// Init
+render();
+</script>
+</body>
+</html>
